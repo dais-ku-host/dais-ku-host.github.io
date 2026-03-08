@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research — DAIS Lab</title>
+    <style>
+      :root { --bg:#ffffff; --text:#1a1a1a; --muted:#666666; --accent:#4a4a9c; --border:#e0e0e0; }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family:Georgia,"Times New Roman",serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+      nav { background:var(--accent); padding:0 24px; display:flex; align-items:center; gap:0; }
+      nav a { color:#ffffff; text-decoration:none; font-family:monospace; font-size:0.92rem; padding:12px 16px; border-bottom:2px solid transparent; display:inline-block; }
+      nav a:hover { background:rgba(255,255,255,0.1); }
+      nav a.active { border-bottom-color:#ffffff; }
+      main { max-width:740px; margin:0 auto; padding:56px 24px 96px; }
+      h1 { font-size:2rem; font-weight:bold; margin:0 0 4px; line-height:1.2; }
+      h2 { font-size:1.25rem; font-weight:bold; margin:48px 0 16px; border-bottom:1px solid var(--border); padding-bottom:6px; }
+      h3 { font-size:1rem; font-weight:bold; margin:0 0 8px; color:var(--accent); }
+      p { margin:0 0 16px; }
+      a { color:var(--accent); text-decoration:none; }
+      a:hover { text-decoration:underline; }
+      .subtitle { color:var(--muted); font-style:italic; margin:0 0 20px; }
+      .research-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+      @media (max-width:600px) { .research-grid { grid-template-columns:1fr; } }
+      .research-card { padding:16px; border:1px solid var(--border); border-radius:4px; }
+      .research-card ul { margin:0; padding-left:18px; font-size:0.87rem; color:var(--muted); }
+      .pub-list { list-style:none; padding:0; margin:0; }
+      .pub-list li { padding:8px 0; border-bottom:1px solid var(--border); font-size:0.92rem; }
+      .pub-list li:last-child { border-bottom:none; }
+      .venue { font-family:monospace; font-size:0.8rem; color:var(--accent); font-weight:bold; margin-right:6px; }
+      .badge-links a { display:inline-block; font-size:0.78rem; font-family:monospace; background:#eeeef8; color:var(--accent); padding:1px 7px; border-radius:3px; margin-right:4px; margin-top:3px; }
+      .venue-tag { color:var(--muted); font-size:0.8rem; }
+      footer { margin-top:80px; padding:24px; border-top:1px solid var(--border); text-align:center; font-size:0.85rem; color:var(--muted); }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html">Team</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="join.html">Join</a>
+    </nav>
+    <main>
+      <h1>Research</h1>
+      <p class="subtitle">Data &amp; Adaptive Intelligence Systems Lab, Korea University</p>
+
+      <h2>Research Area</h2>
+      <p>We are interested in broad topics in Data Science (DS) and Artificial Intelligence (AI). We identify real-world challenges with significant practical impacts and address them through DS/AI methodologies by leveraging {Evolving, (Un)structured data} &times; {Foundation models} &times; {Human-curated knowledge}.</p>
+      <div class="research-grid">
+        <div class="research-card">
+          <h3>Detection / Clustering</h3>
+          <ul>
+            <li>Concept drift <span class="venue-tag">[KDD24]</span></li>
+            <li>Anomaly detection <span class="venue-tag">[WWW24][KDD22][SIGMOD21][KDD20][VLDB19]</span></li>
+            <li>Story discovery <span class="venue-tag">[WWW23][SIGIR23]</span></li>
+            <li>Graph community <span class="venue-tag">[SIGMOD26][WSDM25][CIKM24]</span></li>
+          </ul>
+        </div>
+        <div class="research-card">
+          <h3>Classification / Prediction</h3>
+          <ul>
+            <li>Time-series <span class="venue-tag">[WWW26][NeurIPS24][ICML23][ICLR22]</span></li>
+            <li>Prompt-based CL <span class="venue-tag">[ICML24]</span></li>
+            <li>Traffic forecasting <span class="venue-tag">[KDD25][ICWSM25][TITS23]</span></li>
+            <li>Economic impact <span class="venue-tag">[AAAI22]</span></li>
+          </ul>
+        </div>
+        <div class="research-card">
+          <h3>Natural Language Processing</h3>
+          <ul>
+            <li>Summarization <span class="venue-tag">[WWW23]</span></li>
+            <li>Taxonomy <span class="venue-tag">[WWW22][EMNLP22]</span></li>
+            <li>Topic modeling <span class="venue-tag">[EMNLP23][ACL23]</span></li>
+            <li>Embedding &amp; Evaluation <span class="venue-tag">[KDD26][SIGIR25][EMNLP25]</span></li>
+          </ul>
+        </div>
+        <div class="research-card">
+          <h3>Tabular / Structured Data</h3>
+          <ul>
+            <li>Table pretraining <span class="venue-tag">[SIGIR25]</span></li>
+            <li>Feature engineering <span class="venue-tag">[EMNLP25]</span></li>
+            <li>Continual retrieval <span class="venue-tag">[KDD26]</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Publications</h2>
+      <ul class="pub-list">
+        <li>
+          <span class="venue">[WWW26]</span>
+          Back to the Future: Look-ahead Augmentation and Parallel Self-Refinement for Time Series Forecasting
+          <div class="badge-links"><a href="https://www.arxiv.org/abs/2602.02146" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[KDD26]</span>
+          CREAM: Continual Retrieval on Dynamic Streaming Corpora with Adaptive Soft Memory
+          <div class="badge-links"><a href="https://arxiv.org/abs/2601.02708" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[SIGMOD26]</span>
+          LMSC: Local Sketch Modularity Optimisation for Size-Constrained Community Search in Networks
+          <div class="badge-links"><span style="color:var(--muted);font-size:0.8rem">To appear</span></div>
+        </li>
+        <li>
+          <span class="venue">[EMNLP25]</span>
+          Multi-level Diagnosis and Evaluation for Robust Tabular Feature Engineering with Large Language Models
+          <div class="badge-links"><a href="https://www.arxiv.org/abs/2509.25207" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[SIGIR25]</span>
+          HAETAE: In-domain Table Pretraining with Header Anchoring
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3726302.3730205" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[KDD25]</span>
+          Bi-Modal Learning for Networked Time Series
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3711896.3736856" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[ICWSM25]</span>
+          Mobility Networked Time-Series Forecasting Benchmark Datasets
+          <div class="badge-links"><a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35955" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[NeurIPS24]</span>
+          Exploiting Representation Curvature for Boundary Detection in Time Series
+          <div class="badge-links"><a href="https://openreview.net/pdf/195ca567f4ffb81f9709969358dffd0069188ebe.pdf" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[CIKM24]</span>
+          Flexi-clique: Exploring Flexible and Sub-linear Clique Structures
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3627673.3679927" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[KDD24]</span>
+          Online Drift Detection with Maximum Concept Discrepancy
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3637528.3672016" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[ICML24]</span>
+          One Size Fits All for Semantic Shifts: Adaptive Prompt Tuning for Continual Learning
+          <div class="badge-links"><a href="https://openreview.net/forum?id=WUi1AqhKn5" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[WWW24]</span>
+          Breaking the Time-Frequency Granularity Discrepancy in Time-Series Anomaly Detection
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3589334.3645556" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[EMNLP23]</span>
+          MEGClass: Text Classification with Extremely Weak Supervision via Mutually-Enhancing Text Granularities
+          <div class="badge-links"><a href="https://aclanthology.org/2023.findings-emnlp.708.pdf" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[ACL23]</span>
+          DynaMiTE: Discovering Explosive Topic Evolutions with User Guidance
+          <div class="badge-links"><a href="https://aclanthology.org/2023.findings-acl.14/" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[ICML23]</span>
+          Context Consistency Regularization for Label Sparsity in Time Series
+          <div class="badge-links"><a href="https://proceedings.mlr.press/v202/shin23e/shin23e.pdf" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[SIGIR23]</span>
+          Unsupervised Story Discovery from Continuous News Streams via Scalable Thematic Embedding
+          <div class="badge-links"><a href="https://dl.acm.org/doi/abs/10.1145/3539618.3591782" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[WWW23]</span>
+          PDSum: Prototype-driven Continuous Summarization of Evolving Multi-document Sets Stream
+          <div class="badge-links"><a href="https://dl.acm.org/doi/abs/10.1145/3543507.3583371" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[WWW23]</span>
+          SCStory: Self-supervised and Continual Online Story Discovery
+          <div class="badge-links"><a href="https://dl.acm.org/doi/abs/10.1145/3543507.3583507" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[TITS23]</span>
+          MG-TAR: Multi-view Graph Convolutional Networks for Traffic Accident Risk Prediction
+          <div class="badge-links"><a href="https://ieeexplore.ieee.org/document/10023949" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[EMNLP22]</span>
+          Topic Taxonomy Expansresearch.htmlion via Hierarchy-Aware Topic Phrase Generation
+          <div class="badge-links"><a href="https://aclanthology.org/2022.findings-emnlp.122.pdf" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[AAAI22]</span>
+          COVID-EENet: Predicting Fine-Grained Impact of COVID-19 on Local Economies
+          <div class="badge-links"><a href="https://www.aaai.org/AAAI22Papers/AISI-1959.KimD.pdf" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/COVID-EENet" target="_blank">Code</a></div>
+        </li>
+        <li>
+          <span class="venue">[KDD22]</span>
+          Adaptive Model Pooling for Online Deep Anomaly Detection from a Complex Evolving Data Stream
+          <div class="badge-links"><a href="https://drive.google.com/file/d/17YK5f_tBl2dBrsY_jvxpZlcG--uRni45/view" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/ARCUS" target="_blank">Code</a></div>
+        </li>
+        <li>
+          <span class="venue">[ICLR22]</span>
+          Coherence-based Label Propagation over Time Series for Accelerated Active Learning
+          <div class="badge-links"><a href="https://openreview.net/pdf?id=gjNcH0hj0LM" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/TCLP" target="_blank">Code</a></div>
+        </li>
+        <li>
+          <span class="venue">[WWW22]</span>
+          TaxoCom: Topic Taxonomy Completion with Hierarchical Discovery of Novel Topic Clusters
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3485447.3512002" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          <span class="venue">[KDD20]</span>
+          Multiple Dynamic Outlier-Detection from a Data Stream by Exploiting Duality of Data and Queries
+          <div class="badge-links"><a href="https://drive.google.com/file/d/10CwxfxRTl8s8Z-IZBTh-7u5PGi0iaY9J/view" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/MDUAL" target="_blank">Code</a></div>
+        </li>
+        <li>
+          <span class="venue">[SIGMOD21]</span>
+          Ultrafast Local Outlier Detection from a Data Stream with Stationary Region Skipping
+          <div class="badge-links"><a href="https://drive.google.com/file/d/1iCw1QcQE1inY9sPiwPBXgXWQk2hsdFe5/view" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/STARE" target="_blank">Code</a></div>
+        </li>
+        <li>
+          <span class="venue">[VLDB19]</span>
+          NETS: Extremely Fast Outlier Detection from a Data Stream via Set-Based Processing
+          <div class="badge-links"><a href="http://www.vldb.org/pvldb/vol12/p1303-yoon.pdf" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/NETS" target="_blank">Code</a></div>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      Data &amp; Adaptive Intelligence Systems (DAIS) Laboratory, Korea University &mdash;
+      <a href="mailto:susik@korea.ac.kr">susik@korea.ac.kr</a>
+    </footer>
+  </body>
+</html>
