@@ -27,6 +27,7 @@ nav {
     background: var(--accent);
     padding: 0 24px;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 0;
 }
