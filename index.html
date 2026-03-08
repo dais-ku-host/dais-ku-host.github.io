@@ -13,9 +13,7 @@
         --accent: #4a4a9c;
         --border: #e0e0e0;
       }
-
       * { box-sizing: border-box; }
-
       body {
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
@@ -24,167 +22,72 @@
         line-height: 1.75;
         font-size: 16px;
       }
-
       nav {
         background: var(--accent);
         padding: 0 24px;
         display: flex;
         align-items: center;
-        gap: 24px;
+        gap: 0;
       }
-
       nav a {
         color: #ffffff;
         text-decoration: none;
         font-family: monospace;
-        font-size: 0.95rem;
-        padding: 12px 4px;
+        font-size: 0.92rem;
+        padding: 12px 16px;
         border-bottom: 2px solid transparent;
+        display: inline-block;
       }
-
-      nav a:hover, nav a.active { border-bottom-color: #ffffff; }
-
+      nav a:hover { background: rgba(255,255,255,0.1); }
+      nav a.active { border-bottom-color: #ffffff; }
       main {
         max-width: 740px;
         margin: 0 auto;
         padding: 56px 24px 96px;
       }
-
-      h1 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin: 0 0 4px;
-        line-height: 1.2;
-      }
-
-      h2 {
-        font-size: 1.3rem;
-        font-weight: bold;
-        margin: 48px 0 12px;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 6px;
-      }
-
-      .subtitle {
-        color: var(--muted);
-        font-style: italic;
-        margin: 0 0 20px;
-      }
-
-      .mission {
-        margin: 20px 0 0;
-        padding: 16px 20px;
-        border-left: 3px solid var(--accent);
-        background: #f8f8fc;
-        font-style: italic;
-        color: #333;
-      }
-
-      .news-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .news-list li {
-        padding: 6px 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.95rem;
-      }
-
-      .news-list li:last-child { border-bottom: none; }
-
-      .date {
-        color: var(--accent);
-        font-family: monospace;
-        font-size: 0.85rem;
-        margin-right: 6px;
-      }
-
-      .research-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-top: 16px;
-      }
-
-      @media (max-width: 600px) {
-        .research-grid { grid-template-columns: 1fr; }
-      }
-
-      .research-card {
-        padding: 16px;
-        border: 1px solid var(--border);
-        border-radius: 4px;
-      }
-
-      .research-card h3 {
-        margin: 0 0 6px;
-        font-size: 0.95rem;
-        font-weight: bold;
-        color: var(--accent);
-      }
-
-      .research-card ul {
-        margin: 0;
-        padding-left: 18px;
-        font-size: 0.88rem;
-        color: var(--muted);
-      }
-
-      .pub-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .pub-list li {
-        padding: 8px 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.93rem;
-      }
-
-      .pub-list li:last-child { border-bottom: none; }
-
-      .venue {
-        font-family: monospace;
-        font-size: 0.82rem;
-        color: var(--accent);
-        font-weight: bold;
-        margin-right: 6px;
-      }
-
+      h1 { font-size: 2rem; font-weight: bold; margin: 0 0 4px; line-height: 1.2; }
+      h2 { font-size: 1.25rem; font-weight: bold; margin: 48px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+      h3 { font-size: 1rem; font-weight: bold; margin: 24px 0 8px; color: var(--accent); }
+      p { margin: 0 0 16px; }
       a { color: var(--accent); text-decoration: none; }
       a:hover { text-decoration: underline; }
-
-      .links a {
-        display: inline-block;
-        font-size: 0.8rem;
-        font-family: monospace;
-        background: #eeeef8;
-        color: var(--accent);
-        padding: 1px 7px;
-        border-radius: 3px;
-        margin-right: 4px;
-        margin-top: 3px;
-      }
-
-      footer {
-        margin-top: 80px;
-        padding: 24px;
-        border-top: 1px solid var(--border);
-        text-align: center;
-        font-size: 0.85rem;
-        color: var(--muted);
-      }
+      .subtitle { color: var(--muted); font-style: italic; margin: 0 0 20px; }
+      .mission { margin: 20px 0 0; padding: 16px 20px; border-left: 3px solid var(--accent); background: #f8f8fc; font-style: italic; color: #333; }
+      .news-list { list-style: none; padding: 0; margin: 0; }
+      .news-list li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 0.93rem; }
+      .news-list li:last-child { border-bottom: none; }
+      .date { color: var(--accent); font-family: monospace; font-size: 0.83rem; margin-right: 6px; }
+      .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+      @media (max-width: 600px) { .research-grid { grid-template-columns: 1fr; } }
+      .research-card { padding: 16px; border: 1px solid var(--border); border-radius: 4px; }
+      .research-card h3 { margin: 0 0 8px; font-size: 0.95rem; color: var(--accent); }
+      .research-card ul { margin: 0; padding-left: 18px; font-size: 0.87rem; color: var(--muted); }
+      .pub-list { list-style: none; padding: 0; margin: 0; }
+      .pub-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+      .pub-list li:last-child { border-bottom: none; }
+      .venue { font-family: monospace; font-size: 0.8rem; color: var(--accent); font-weight: bold; margin-right: 6px; }
+      .badge-links a { display: inline-block; font-size: 0.78rem; font-family: monospace; background: #eeeef8; color: var(--accent); padding: 1px 7px; border-radius: 3px; margin-right: 4px; margin-top: 3px; }
+      .member-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-top: 16px; }
+      .member-card { padding: 14px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.88rem; }
+      .member-card .name { font-weight: bold; margin-bottom: 2px; }
+      .member-card .role { color: var(--muted); font-size: 0.82rem; }
+      .member-card .email { font-family: monospace; font-size: 0.78rem; color: var(--muted); margin-top: 4px; word-break: break-all; }
+      .pi-block { display: flex; gap: 24px; align-items: flex-start; margin-top: 16px; }
+      .pi-info .name { font-size: 1.2rem; font-weight: bold; }
+      .pi-info .role { color: var(--muted); margin: 2px 0 8px; }
+      .pi-info p { margin: 0 0 4px; font-size: 0.9rem; }
+      .join-section { margin-top: 8px; }
+      .join-section ul { padding-left: 20px; margin: 8px 0 20px; }
+      .join-section li { margin-bottom: 6px; font-size: 0.95rem; }
+      footer { margin-top: 80px; padding: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 0.85rem; color: var(--muted); }
     </style>
   </head>
   <body>
     <nav>
-      <a href="#" class="active">./dais-lab</a>
-      <a href="#news">news</a>
-      <a href="#research">research</a>
-      <a href="#publications">publications</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="team.html">Team</a>
+      <a href="research.html">Research</a>
+      <a href="join.html">Join</a>
     </nav>
     <main>
       <h1>Data &amp; Adaptive Intelligence Systems Lab</h1>
@@ -193,7 +96,7 @@
         Empower innovation through data-driven insights, fostering intelligence systems with adaptive capabilities.
       </div>
 
-      <h2 id="news">News</h2>
+      <h2>News</h2>
       <ul class="news-list">
         <li><span class="date">[2026.03]</span> Six undergraduate students continued to graduate studies</li>
         <li><span class="date">[2026.02]</span> Susik will serve as a Publicity Chair for KDD 2026</li>
@@ -206,123 +109,29 @@
         <li><span class="date">[2025.10]</span> DAIS Lab won the second prize in the poster presentation at AI Tech Day at Korea University</li>
         <li><span class="date">[2025.09]</span> A paper on traffic forecasting accepted to KBS 2025</li>
         <li><span class="date">[2025.08]</span> A paper on multi-level evaluation for feature engineering with LLM accepted to EMNLP 2025</li>
-        <li><span class="date">[2025.08]</span> Woojun won the Master's Research Fellowship from the National Research Foundation of Korea</li>
+        <li><span class="date">[2025.08]</span> Woojun won the Master&apos;s Research Fellowship from the National Research Foundation of Korea</li>
+        <li><span class="date">[2025.07]</span> Three undergraduate students joined DAIS Lab</li>
         <li><span class="date">[2025.06]</span> Yoonhwan and Hyunwoong won the best paper award at Korea Computer Congress 2025 (with UNIST)</li>
         <li><span class="date">[2025.05]</span> A paper on the networked time series accepted to KDD 2025</li>
         <li><span class="date">[2025.04]</span> A paper on the tabular embedding accepted to SIGIR 2025</li>
         <li><span class="date">[2025.03]</span> Six undergraduate students continued to graduate studies</li>
+        <li><span class="date">[2025.02]</span> Susik will serve as an Area Chair for KDD 2025 Applied Data Science Track</li>
+        <li><span class="date">[2025.01]</span> Four undergraduate students joined DAIS Lab</li>
+        <li><span class="date">[2024.12]</span> Woojun won the runner-up award in the Capstone Design Competition at Korea University</li>
         <li><span class="date">[2024.09]</span> A paper on time series segmentation accepted to NeurIPS 2024</li>
+        <li><span class="date">[2024.07]</span> Twelve undergraduate students, one researcher, and one master student joined DAIS Lab</li>
         <li><span class="date">[2024.05]</span> A paper on online concept drift detection accepted to KDD 2024</li>
         <li><span class="date">[2024.05]</span> A paper on adaptive prompt tuning for continual learning accepted to ICML 2024</li>
         <li><span class="date">[2024.03]</span> DAIS Lab at Korea University opened</li>
       </ul>
 
-      <h2 id="research">Research Area</h2>
-      <p>We are interested in broad topics in Data Science (DS) and Artificial Intelligence (AI). We identify real-world challenges with significant practical impacts and address them through DS/AI methodologies by leveraging {Evolving, (Un)structured data} &times; {Foundation models} &times; {Human-curated knowledge}.</p>
-      <div class="research-grid">
-        <div class="research-card">
-          <h3>Detection / Clustering</h3>
-          <ul>
-            <li>Concept drift <span style="color:#aaa">[KDD24]</span></li>
-            <li>Anomaly detection <span style="color:#aaa">[WWW24][KDD22]</span></li>
-            <li>Story discovery <span style="color:#aaa">[WWW23][SIGIR23]</span></li>
-            <li>Graph community <span style="color:#aaa">[SIGMOD26][CIKM24]</span></li>
-          </ul>
-        </div>
-        <div class="research-card">
-          <h3>Classification / Prediction</h3>
-          <ul>
-            <li>Time-series <span style="color:#aaa">[WWW26][NeurIPS24][ICML23]</span></li>
-            <li>Prompt-based CL <span style="color:#aaa">[ICML24]</span></li>
-            <li>Traffic forecasting <span style="color:#aaa">[KDD25][ICWSM25]</span></li>
-          </ul>
-        </div>
-        <div class="research-card">
-          <h3>Natural Language Processing</h3>
-          <ul>
-            <li>Summarization <span style="color:#aaa">[WWW23]</span></li>
-            <li>Taxonomy <span style="color:#aaa">[WWW22][EMNLP22]</span></li>
-            <li>Topic modeling <span style="color:#aaa">[EMNLP23][ACL23]</span></li>
-            <li>Embedding &amp; Evaluation <span style="color:#aaa">[SIGIR25][EMNLP25]</span></li>
-          </ul>
-        </div>
-        <div class="research-card">
-          <h3>Tabular / Structured Data</h3>
-          <ul>
-            <li>Table pretraining <span style="color:#aaa">[SIGIR25]</span></li>
-            <li>Feature engineering <span style="color:#aaa">[EMNLP25]</span></li>
-            <li>Continual retrieval <span style="color:#aaa">[KDD26]</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <h2 id="publications">Selected Publications</h2>
-      <ul class="pub-list">
-        <li>
-          <span class="venue">[WWW26]</span>
-          Back to the Future: Look-ahead Augmentation and Parallel Self-Refinement for Time Series Forecasting
-          <div class="links"><a href="https://www.arxiv.org/abs/2602.02146">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[KDD26]</span>
-          CREAM: Continual Retrieval on Dynamic Streaming Corpora with Adaptive Soft Memory
-          <div class="links"><a href="https://arxiv.org/abs/2601.02708">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[EMNLP25]</span>
-          Multi-level Diagnosis and Evaluation for Robust Tabular Feature Engineering with Large Language Models
-          <div class="links"><a href="https://www.arxiv.org/abs/2509.25207">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[SIGIR25]</span>
-          HAETAE: In-domain Table Pretraining with Header Anchoring
-          <div class="links"><a href="https://dl.acm.org/doi/10.1145/3726302.3730205">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[KDD25]</span>
-          Bi-Modal Learning for Networked Time Series
-          <div class="links"><a href="https://dl.acm.org/doi/10.1145/3711896.3736856">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[NeurIPS24]</span>
-          Exploiting Representation Curvature for Boundary Detection in Time Series
-          <div class="links"><a href="https://openreview.net/pdf/195ca567f4ffb81f9709969358dffd0069188ebe.pdf">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[KDD24]</span>
-          Online Drift Detection with Maximum Concept Discrepancy
-          <div class="links"><a href="https://dl.acm.org/doi/10.1145/3637528.3672016">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[ICML24]</span>
-          One Size Fits All for Semantic Shifts: Adaptive Prompt Tuning for Continual Learning
-          <div class="links"><a href="https://openreview.net/forum?id=WUi1AqhKn5">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[WWW24]</span>
-          Breaking the Time-Frequency Granularity Discrepancy in Time-Series Anomaly Detection
-          <div class="links"><a href="https://dl.acm.org/doi/10.1145/3589334.3645556">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[ICML23]</span>
-          Context Consistency Regularization for Label Sparsity in Time Series
-          <div class="links"><a href="https://proceedings.mlr.press/v202/shin23e/shin23e.pdf">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[SIGIR23]</span>
-          Unsupervised Story Discovery from Continuous News Streams via Scalable Thematic Embedding
-          <div class="links"><a href="https://dl.acm.org/doi/abs/10.1145/3539618.3591782">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[KDD22]</span>
-          Adaptive Model Pooling for Online Deep Anomaly Detection from a Complex Evolving Data Stream
-          <div class="links"><a href="https://drive.google.com/file/d/17YK5f_tBl2dBrsY_jvxpZlcG--uRni45/view">Paper</a><a href="https://github.com/kaist-dmlab/ARCUS">Code</a></div>
-        </li>
-        <li>
-          <span class="venue">[VLDB19]</span>
-          NETS: Extremely Fast Outlier Detection from a Data Stream via Set-Based Processing
-          <div class="links"><a href="http://www.vldb.org/pvldb/vol12/p1303-yoon.pdf">Paper</a><a href="https://github.com/kaist-dmlab/NETS">Code</a></div>
-        </li>
+      <h2>Quick Links</h2>
+      <ul class="news-list">
+        <li><a href="team.html#pi">Principal Investigator</a></li>
+        <li><a href="team.html">Who we are</a></li>
+        <li><a href="research.html">What we do</a></li>
+        <li><a href="join.html">How to join</a></li>
+        <li><a href="https://maps.app.goo.gl/Bevdn9RDnp2Tdw8MA" target="_blank">Visit (Science Library 616C)</a></li>
       </ul>
     </main>
     <footer>
