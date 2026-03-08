@@ -2,7 +2,7 @@
 /* Palette: https://colorhunt.co/palette/819a91a7c1a8d1d8beeeefe0 */
 
 :root {
-    --bg: #EEEFE0;
+    --bg: #ffffff;
     --text: #1a1a1a;
     --muted: #666666;
     --accent: #819A91;
@@ -15,7 +15,7 @@
 
 body {
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, "Times New Roman", serif;h
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
