@@ -99,7 +99,7 @@ a:hover { text-decoration: underline; }
 /* ---- News list ---- */
 .news-list { list-style: none; padding: 0; margin: 0; }
 .news-list li {
-    padding: 6px 0;
+    display: flex; padding: 6px 0;
     border-bottom: 1px solid var(--border);
     font-size: 0.93rem;
 }
@@ -108,7 +108,7 @@ a:hover { text-decoration: underline; }
     color: var(--accent);
     font-family: monospace;
     font-size: 0.83rem;
-    margin-right: 6px;
+    margin-right: 6px; flex-shrink: 0;
 }
 
 /* ---- PI block ---- */
@@ -190,7 +190,7 @@ a:hover { text-decoration: underline; }
     font-size: 0.8rem;
     color: var(--accent);
     font-weight: bold;
-    margin-right: 6px;
+    margin-right: 6px; flex-shrink: 0;
 }
 .badge-links a {
     display: inline-block;
@@ -306,4 +306,36 @@ footer {
                     flex-wrap: wrap;
                     gap: 8px;
         }
+}
+
+/* ---- Archive toggle ---- */
+.archive-toggle {
+    margin-top: 8px;
+}
+
+.archive-toggle summary {
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: monospace;
+    color: var(--muted);
+    padding: 6px 0;
+    list-style: none;
+}
+
+.archive-toggle summary::before {
+    content: "\25B6  ";
+    font-size: 0.7rem;
+}
+
+.archive-toggle[open] summary::before {
+    content: "\25BC  ";
+    font-size: 0.7rem;
+}
+
+.archive-toggle summary:hover {
+    color: var(--accent);
+}
+
+.archive-toggle .news-list {
+    margin-top: 4px;
 }
