@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Team — DAIS Lab</title>
+    <style>
+      :root { --bg:#ffffff; --text:#1a1a1a; --muted:#666666; --accent:#4a4a9c; --border:#e0e0e0; }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family:Georgia,"Times New Roman",serif; background:var(--bg); color:var(--text); line-height:1.75; font-size:16px; }
+      nav { background:var(--accent); padding:0 24px; display:flex; align-items:center; gap:0; }
+      nav a { color:#ffffff; text-decoration:none; font-family:monospace; font-size:0.92rem; padding:12px 16px; border-bottom:2px solid transparent; display:inline-block; }
+      nav a:hover { background:rgba(255,255,255,0.1); }
+      nav a.active { border-bottom-color:#ffffff; }
+      main { max-width:740px; margin:0 auto; padding:56px 24px 96px; }
+      h1 { font-size:2rem; font-weight:bold; margin:0 0 4px; line-height:1.2; }
+      h2 { font-size:1.25rem; font-weight:bold; margin:48px 0 16px; border-bottom:1px solid var(--border); padding-bottom:6px; }
+      a { color:var(--accent); text-decoration:none; }
+      a:hover { text-decoration:underline; }
+      .subtitle { color:var(--muted); font-style:italic; margin:0 0 20px; }
+      .pi-block { display:flex; gap:28px; align-items:flex-start; margin-top:16px; flex-wrap:wrap; }
+      .pi-info .name { font-size:1.15rem; font-weight:bold; margin-bottom:4px; }
+      .pi-info .role { color:var(--muted); margin:0 0 8px; font-style:italic; }
+      .pi-info p { margin:0 0 4px; font-size:0.9rem; }
+      .member-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:14px; margin-top:14px; }
+      .member-card { padding:14px; border:1px solid var(--border); border-radius:4px; font-size:0.88rem; }
+      .member-card .name { font-weight:bold; margin-bottom:3px; }
+      .member-card .role { color:var(--muted); font-size:0.82rem; }
+      .member-card .email { font-family:monospace; font-size:0.76rem; color:var(--muted); margin-top:4px; word-break:break-all; }
+      footer { margin-top:80px; padding:24px; border-top:1px solid var(--border); text-align:center; font-size:0.85rem; color:var(--muted); }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="research.html">Research</a>
+      <a href="join.html">Join</a>
+    </nav>
+    <main>
+      <h1>Team</h1>
+      <p class="subtitle">Data &amp; Adaptive Intelligence Systems Lab, Korea University</p>
+
+      <h2 id="pi">Principal Investigator</h2>
+      <div class="pi-block">
+        <div class="pi-info">
+          <div class="name">Susik Yoon</div>
+          <div class="role">Assistant Professor</div>
+          <p>Computer Science and Engineering</p>
+          <p>College of Informatics, Korea University</p>
+          <p>Office: Science Library 616C</p>
+          <p>E-mail: susik{@}korea.ac.kr</p>
+          <p style="margin-top:8px">
+            <a href="https://drive.google.com/file/d/1wlo9mHj8SKcWaWQyvAjBFi1I_GNry3qK/view?usp=drive_link" target="_blank">CV</a> &nbsp;&middot;&nbsp;
+            <a href="https://scholar.google.com/citations?user=susik_yoon" target="_blank">Google Scholar</a>
+          </p>
+        </div>
+      </div>
+
+      <h2>Graduate Researchers</h2>
+      <div class="member-grid">
+        <div class="member-card">
+          <div class="name">Sunho Kim</div>
+          <div class="role">M.S./Ph.D. Student</div>
+          <div class="email">sunho_kim{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Woojun Jung</div>
+          <div class="role">M.S./Ph.D. Student</div>
+          <div class="email">woojoon{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Hyunwoong Lim</div>
+          <div class="role">M.S./Ph.D. Student</div>
+          <div class="email">hw_lim{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Juhyeong Lee</div>
+          <div class="role">M.S./Ph.D. Student</div>
+          <div class="email">daisjuhyeong{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Hyeongu Kang</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">hyeongu_kang{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Huijeong Son</div>
+          <div class="role">M.S. Student / Line+</div>
+          <div class="email">huijeong_son{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Yoonhwan Lee</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">theghks3{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Yebin Lim</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">yebinuni{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Jeehyo Jeon</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">cordelia0626{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Subeen Ho</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">hosubin02{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Myeongchun Kim</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">myeongchun{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Seungwon Shin</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">mengchi501{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Minyeol Kim</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">minyeol1315{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Yerim Kim</div>
+          <div class="role">M.S. Student</div>
+          <div class="email">dpfla274{@}korea.ac.kr</div>
+        </div>
+      </div>
+
+      <h2>Undergraduate / Master Students</h2>
+      <div class="member-grid">
+        <div class="member-card">
+          <div class="name">Wonjun Choi</div>
+          <div class="role">Undergraduate</div>
+          <div class="email">migreeni{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Hyeonjik Bae</div>
+          <div class="role">Undergraduate</div>
+          <div class="email">bhg4060{@}korea.ac.kr</div>
+        </div>
+      </div>
+
+      <h2>Interns</h2>
+      <div class="member-grid">
+        <div class="member-card">
+          <div class="name">Seohyeon Baek</div>
+          <div class="role">Undergraduate</div>
+          <div class="email">beth0508{@}naver.com</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Chaeyeong Yoon</div>
+          <div class="role">Undergraduate</div>
+          <div class="email">elisha1122{@}korea.ac.kr</div>
+        </div>
+        <div class="member-card">
+          <div class="name">Heemon Jeong</div>
+          <div class="role">M.S./Ph.D. Student</div>
+          <div class="email">gmlans9598{@}korea.ac.kr</div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Data &amp; Adaptive Intelligence Systems (DAIS) Laboratory, Korea University &mdash;
+      <a href="mailto:susik@korea.ac.kr">susik@korea.ac.kr</a>
+    </footer>
+  </body>
+</html>
