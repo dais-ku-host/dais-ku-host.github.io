@@ -209,14 +209,14 @@ a:hover { text-decoration: underline; }
 }
 
 /* ---- Icons ---- */
-.email-icon, .cv-icon {
+.email-icon, .cv-icon, .homepage-icon {
     color: var(--muted);
     display: inline-block;
     margin-top: 4px;
     transition: color 0.2s;
 }
-.email-icon:hover, .cv-icon:hover { color: var(--accent); }
-.email-icon svg, .cv-icon svg { width: 18px; height: 18px; }
+.email-icon:hover, .cv-icon:hover, .homepage-icon:hover { color: var(--accent); }
+.email-icon svg, .cv-icon svg, .homepage-icon svg { width: 18px; height: 18px; }
 
 /* ---- Join page extras ---- */
 ul { padding-left: 20px; margin: 8px 0 16px; }
