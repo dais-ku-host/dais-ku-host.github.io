@@ -86,7 +86,6 @@ a:hover { text-decoration: underline; }
 }
 
 /* ---- Mission / Highlight box ---- */
-.mission,
 .highlight-box {
     margin: 20px 0 0;
     padding: 16px 20px;
@@ -94,6 +93,19 @@ a:hover { text-decoration: underline; }
     background: rgba(167, 193, 168, 0.15);
     font-style: italic;
     color: #333;
+}
+.mission {
+    margin: -8px 0 0;
+    padding: 20px 0 16px;
+    border-left: none;
+    background: none;
+    font-style: italic;
+    color: var(--accent);
+    font-size: 1.05rem;
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+    opacity: 0.85;
 }
 
 /* ---- News list ---- */
@@ -178,34 +190,99 @@ a:hover { text-decoration: underline; }
 .research-card ul { margin: 0; padding-left: 18px; font-size: 0.87rem; color: var(--muted); }
 
 /* ---- Publication list ---- */
-.pub-list { list-style: none; padding: 0; margin: 0; }
+.pub-list { padding: 0 0 0 32px; margin: 0; }
 .pub-list li {
-    padding: 8px 0;
+    padding: 10px 0 10px 8px;
     border-bottom: 1px solid var(--border);
     font-size: 0.92rem;
 }
-.pub-list li:last-child { border-bottom: none; }
-.venue {
+.pub-list li::marker {
     font-family: monospace;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     color: var(--accent);
     font-weight: bold;
-    margin-right: 6px; flex-shrink: 0;
 }
-.badge-links a {
+.pub-list li:last-child { border-bottom: none; }
+#filter-label {
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: var(--accent);
+    font-style: italic;
+    cursor: pointer;
+}
+#filter-label:hover {
+    text-decoration: line-through;
+}
+.pub-authors {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 2px;
+}
+.pub-venue {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 2px;
+    font-style: italic;
+}
+.badge-links a, .badge-links span {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-family: monospace;
-    background: var(--accent-pale);
-    color: #3a5545;
-    padding: 1px 7px;
-    border-radius: 3px;
-    margin-right: 4px;
+    color: var(--muted);
+    padding: 0;
+    margin-right: 8px;
     margin-top: 3px;
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+}
+.badge-links a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
 }
 .venue-tag {
     color: var(--muted);
     font-size: 0.8rem;
+}
+
+/* ---- Topic filter ---- */
+.topic-filter {
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin: -2px -4px;
+}
+.topic-filter:hover {
+    background: rgba(129,154,145,0.1);
+}
+.topic-filter.active {
+    background: rgba(129,154,145,0.18);
+    color: var(--accent);
+    font-weight: bold;
+}
+.research-card h3 {
+    cursor: pointer;
+}
+.research-card.card-active {
+    background: rgba(129,154,145,0.12);
+    border-color: var(--accent);
+    transition: background 0.3s, border-color 0.3s;
+}
+.research-card:hover {
+    background: rgba(129,154,145,0.06);
+    border-color: var(--accent-light);
+    transition: background 0.2s, border-color 0.2s;
+}
+.pub-list li {
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+.pub-list li.pub-hidden {
+    opacity: 0;
+    max-height: 0;
+    padding: 0 0 0 36px;
+    margin: 0;
+    border: none;
+    overflow: hidden;
 }
 
 /* ---- Icons ---- */
@@ -338,4 +415,44 @@ footer {
 
 .archive-toggle .news-list {
     margin-top: 4px;
+}
+
+/* ---- Dao image swap ---- */
+.dao-swap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.dao-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: top;
+    transition: opacity 0.5s ease;
+    margin: 0 !important;
+    border-radius: 0 !important;
+}
+.dao-hover {
+    opacity: 0;
+}
+.dao-swap:hover .dao-default {
+    opacity: 0;
+}
+.dao-swap:hover .dao-hover {
+    opacity: 1;
+}
+
+/* ---- Wave Animation ---- */
+.wave-hero {
+    margin: 0;
+    overflow: hidden;
+}
+.wave-hero canvas {
+    width: 100%;
+    display: block;
 }

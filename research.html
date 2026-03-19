@@ -21,184 +21,339 @@
       <p>We are interested in broad topics in Data Science (DS) and Artificial Intelligence (AI). We identify real-world challenges with significant practical impacts and address them through DS/AI methodologies by leveraging {Evolving, (Un)structured data} &times; {Foundation models} &times; {Human-curated knowledge}.</p>
       <div class="research-grid">
         <div class="research-card">
-          <h3>Detection / Clustering</h3>
+          <h3>Evolving Data</h3>
           <ul>
-            <li>Concept drift <span class="venue-tag">[KDD24]</span></li>
-            <li>Anomaly detection <span class="venue-tag">[WWW24][KDD22][SIGMOD21][KDD20][VLDB19]</span></li>
-            <li>Story discovery <span class="venue-tag">[WWW23][SIGIR23]</span></li>
-            <li>Graph community <span class="venue-tag">[SIGMOD26][WSDM25][CIKM24]</span></li>
+            <li class="topic-filter" data-venues="WWW24,KDD24,KDD22,SIGMOD21,KDD20,VLDB19">Anomaly &amp; drift detection <span class="venue-tag">WWW24, KDD24, KDD22, SIGMOD21, KDD20, VLDB19</span></li>
+            <li class="topic-filter" data-venues="WWW26,NeurIPS24,ICML23,ICLR22">Time-series analysis <span class="venue-tag">WWW26, NeurIPS24, ICML23, ICLR22</span></li>
+            <li class="topic-filter" data-venues="WWW23,SIGIR23,ICDE19,MiLeTS19">Streaming text &amp; event processing <span class="venue-tag">WWW23, SIGIR23, ICDE19, MiLeTS19</span></li>
           </ul>
         </div>
         <div class="research-card">
-          <h3>Classification / Prediction</h3>
+          <h3>(Un)structured Data</h3>
           <ul>
-            <li>Time-series <span class="venue-tag">[WWW26][NeurIPS24][ICML23][ICLR22]</span></li>
-            <li>Prompt-based CL <span class="venue-tag">[ICML24]</span></li>
-            <li>Traffic forecasting <span class="venue-tag">[KDD25][ICWSM25][TITS23]</span></li>
-            <li>Economic impact <span class="venue-tag">[AAAI22]</span></li>
+            <li class="topic-filter" data-venues="SIGMOD26,CIKM24,WSDM26">Graph &amp; network mining <span class="venue-tag">SIGMOD26, CIKM24, WSDM26</span></li>
+            <li class="topic-filter" data-venues="KDD25,KBS25,ICWSM25,TITS23,ICDM22">Spatio-temporal networks <span class="venue-tag">KDD25, KBS25, ICWSM25, TITS23, ICDM22</span></li>
+            <li class="topic-filter" data-venues="SIGIR25,EMNLP25">Tabular data understanding <span class="venue-tag">SIGIR25, EMNLP25</span></li>
           </ul>
         </div>
         <div class="research-card">
-          <h3>Natural Language Processing</h3>
+          <h3>Foundation Models</h3>
           <ul>
-            <li>Summarization <span class="venue-tag">[WWW23]</span></li>
-            <li>Taxonomy <span class="venue-tag">[WWW22][EMNLP22]</span></li>
-            <li>Topic modeling <span class="venue-tag">[EMNLP23][ACL23]</span></li>
-            <li>Embedding &amp; Evaluation <span class="venue-tag">[KDD26][SIGIR25][EMNLP25]</span></li>
+            <li class="topic-filter" data-venues="SIGIR25,EMNLP25">Pretraining &amp; feature engineering <span class="venue-tag">SIGIR25, EMNLP25</span></li>
+            <li class="topic-filter" data-venues="ICML24,KDD26">Prompt tuning &amp; continual learning <span class="venue-tag">ICML24, KDD26</span></li>
+            <li class="topic-filter" data-venues="EMNLP23,WWW23">Weak-supervision &amp; summarization <span class="venue-tag">EMNLP23, WWW23</span></li>
           </ul>
         </div>
         <div class="research-card">
-          <h3>Tabular / Structured Data</h3>
+          <h3>Human-curated Knowledge</h3>
           <ul>
-            <li>Table pretraining <span class="venue-tag">[SIGIR25]</span></li>
-            <li>Feature engineering <span class="venue-tag">[EMNLP25]</span></li>
-            <li>Continual retrieval <span class="venue-tag">[KDD26]</span></li>
+            <li class="topic-filter" data-venues="WWW22,EMNLP22,ACL23">Taxonomy &amp; topic discovery <span class="venue-tag">WWW22, EMNLP22, ACL23</span></li>
+            <li class="topic-filter" data-venues="AAAI22,TCSS25,CHI16">Societal &amp; behavioral analysis <span class="venue-tag">AAAI22, TCSS25, CHI16</span></li>
           </ul>
         </div>
       </div>
 
-      <h2>Publications</h2>
-      <ul class="pub-list">
+      <h2>Publications <span id="filter-label"></span></h2>
+      <ol class="pub-list" reversed>
         <li>
-          <span class="venue">[WWW26]</span>
-          Back to the Future: Look-ahead Augmentation and Parallel Self-Refinement for Time Series Forecasting
-          <div class="badge-links"><a href="https://www.arxiv.org/abs/2602.02146" target="_blank">Paper</a></div>
-        </li>
-        <li>
-          <span class="venue">[KDD26]</span>
           CREAM: Continual Retrieval on Dynamic Streaming Corpora with Adaptive Soft Memory
+          <div class="pub-authors">Huijeong Son, Hyeongu Kang, Sunho Kim, Subeen Ho, Seongku Kang, Dongha Lee, Susik Yoon</div>
+          <div class="pub-venue">KDD26 | ACM SIGKDD Conference on Knowledge Discovery and Data Mining, August 2026</div>
           <div class="badge-links"><a href="https://arxiv.org/abs/2601.02708" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[SIGMOD26]</span>
           LMSC: Local Sketch Modularity Optimisation for Size-Constrained Community Search in Networks
-          <div class="badge-links"><span style="color:var(--muted);font-size:0.8rem">To appear</span></div>
+          <div class="pub-authors">Dahee Kim, Taejoon Han, Kaiyu Feng, Junghoon Kim, Susik Yoon</div>
+          <div class="pub-venue">SIGMOD26 | ACM Conference on Management of Data, May 2026</div>
+          <div class="badge-links"><span>To appear</span></div>
         </li>
         <li>
-          <span class="venue">[EMNLP25]</span>
+          Back to the Future: Look-ahead Augmentation and Parallel Self-Refinement for Time Series Forecasting
+          <div class="pub-authors">Sunho Kim, Susik Yoon</div>
+          <div class="pub-venue">WWW26 (Short) | ACM The Web Conference, April 2026</div>
+          <div class="badge-links"><a href="https://www.arxiv.org/abs/2602.02146" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          Metadata Meets LLMs: Constructing Knowledge-Rich Citation Networks with CoT-Enhanced Representations
+          <div class="pub-authors">Soohwan Jeong, Mingyu Choi, Joon-Young Kim, Susik Yoon+, Sungsu Lim+</div>
+          <div class="pub-venue">WSDM26 (Short) | ACM Conference on Web Search and Data Mining, February 2026</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3773966.3779395" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          Sequence-aware Adaptive Graph Convolutional Recurrent Networks for Traffic Forecasting
+          <div class="pub-authors">Seunghoon Han, Hyewon Lee, Yoonhwan Lee, Sung-Soo Kim, Susik Yoon+, Sungsu Lim+</div>
+          <div class="pub-venue">KBS25 | Knowledge-Based Systems, December 2025</div>
+          <div class="badge-links"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0950705125015722" target="_blank">Paper</a></div>
+        </li>
+        <li>
           Multi-level Diagnosis and Evaluation for Robust Tabular Feature Engineering with Large Language Models
-          <div class="badge-links"><a href="https://www.arxiv.org/abs/2509.25207" target="_blank">Paper</a></div>
+          <div class="pub-authors">Yebin Lim, Susik Yoon</div>
+          <div class="pub-venue">EMNLP25 (Findings) | Conference on Empirical Methods in Natural Language Processing, November 2025</div>
+          <div class="badge-links"><a href="https://aclanthology.org/2025.findings-emnlp.249/" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[SIGIR25]</span>
-          HAETAE: In-domain Table Pretraining with Header Anchoring
-          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3726302.3730205" target="_blank">Paper</a></div>
+          An Analysis of City Image by Exploiting Social Media: Toward a Deeper Understanding of Multiple Characteristics and Their Temporal Changes using Machine Learning
+          <div class="pub-authors">Hyeonchoel Jeong, Bumsu Cho, Susik Yoon, Yun Wook Choo, Dookie Kim, Jungeun Kim</div>
+          <div class="pub-venue">TCSS25 | IEEE Transactions on Computational Social Systems, August 2025</div>
+          <div class="badge-links"><a href="https://ieeexplore.ieee.org/document/11103505" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[KDD25]</span>
           Bi-Modal Learning for Networked Time Series
+          <div class="pub-authors">Youngeun Nam*, Jihye Na*, Susik Yoon, Hwanjun Song, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">KDD25 | ACM SIGKDD Conference on Knowledge Discovery and Data Mining, August 2025</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3711896.3736856" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[ICWSM25]</span>
+          HAETAE: In-domain Table Pretraining with Header Anchoring
+          <div class="pub-authors">Woojun Jung, Susik Yoon</div>
+          <div class="pub-venue">SIGIR25 (Short) | ACM SIGIR Conference on Research and Development in Information Retrieval, July 2025</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3726302.3730205" target="_blank">Paper</a></div>
+        </li>
+        <li>
           Mobility Networked Time-Series Forecasting Benchmark Datasets
+          <div class="pub-authors">Jihye Na*, Youngeun Nam*, Susik Yoon, Hwanjun Song, Byung Suk Lee, Jae-Gil Lee</div>
+          <div class="pub-venue">ICWSM25 | AAAI International Conference on Web and Social Media, June 2025</div>
           <div class="badge-links"><a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35955" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[NeurIPS24]</span>
           Exploiting Representation Curvature for Boundary Detection in Time Series
-          <div class="badge-links"><a href="https://openreview.net/pdf/195ca567f4ffb81f9709969358dffd0069188ebe.pdf" target="_blank">Paper</a></div>
+          <div class="pub-authors">Yooju Shin, Jaehyun Park, Susik Yoon, Hwanjun Song, Byung Suk Lee, Jae-Gil Lee</div>
+          <div class="pub-venue">NeurIPS24 | Conference on Neural Information Processing Systems, December 2024</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.5555/3737916.3738110" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[CIKM24]</span>
           Flexi-clique: Exploring Flexible and Sub-linear Clique Structures
+          <div class="pub-authors">Song Kim, Junghoon Kim, Susik Yoon, Jungeun Kim</div>
+          <div class="pub-venue">CIKM24 (Short) | ACM Conference on Information and Knowledge Management, October 2024</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3627673.3679927" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[KDD24]</span>
           Online Drift Detection with Maximum Concept Discrepancy
+          <div class="pub-authors">Ke Wan, Yi Liang, Susik Yoon</div>
+          <div class="pub-venue">KDD24 | ACM SIGKDD Conference on Knowledge Discovery and Data Mining, August 2024</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3637528.3672016" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[ICML24]</span>
           One Size Fits All for Semantic Shifts: Adaptive Prompt Tuning for Continual Learning
-          <div class="badge-links"><a href="https://openreview.net/forum?id=WUi1AqhKn5" target="_blank">Paper</a></div>
+          <div class="pub-authors">Doyoung Kim, Susik Yoon, Dongmin Park, Youngjun Lee, Hwanjun Song, Jihwan Bang, Jae-Gil Lee</div>
+          <div class="pub-venue">ICML24 | International Conference on Machine Learning, July 2024</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.5555/3692070.3693057" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[WWW24]</span>
           Breaking the Time-Frequency Granularity Discrepancy in Time-Series Anomaly Detection
+          <div class="pub-authors">Youngeun Nam, Susik Yoon, Yooju Shin, Minyoung Bae, Hwanjun Song, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">WWW24 | ACM The Web Conference, May 2024</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3589334.3645556" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[EMNLP23]</span>
           MEGClass: Text Classification with Extremely Weak Supervision via Mutually-Enhancing Text Granularities
-          <div class="badge-links"><a href="https://aclanthology.org/2023.findings-emnlp.708.pdf" target="_blank">Paper</a></div>
+          <div class="pub-authors">Priyanka Kargupta, Tanay Komarlu, Susik Yoon, Xuan Wang, Jiawei Han</div>
+          <div class="pub-venue">EMNLP23 (Findings) | Conference on Empirical Methods in Natural Language Processing, December 2023</div>
+          <div class="badge-links"><a href="https://aclanthology.org/2023.findings-emnlp.708/" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[ACL23]</span>
           DynaMiTE: Discovering Explosive Topic Evolutions with User Guidance
+          <div class="pub-authors">Nishant Balepur, Shivam Agarwal, Karthik Venkat Ramanan, Susik Yoon, Diyi Yang, Jiawei Han</div>
+          <div class="pub-venue">ACL23 (Findings) | Annual Meeting of the Association for Computational Linguistics, July 2023</div>
           <div class="badge-links"><a href="https://aclanthology.org/2023.findings-acl.14/" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[ICML23]</span>
           Context Consistency Regularization for Label Sparsity in Time Series
+          <div class="pub-authors">Yooju Shin, Susik Yoon, Hwanjun Song, Dongmin Park, Byunghyun Kim, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">ICML23 | International Conference on Machine Learning, July 2023</div>
           <div class="badge-links"><a href="https://proceedings.mlr.press/v202/shin23e/shin23e.pdf" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[SIGIR23]</span>
           Unsupervised Story Discovery from Continuous News Streams via Scalable Thematic Embedding
+          <div class="pub-authors">Susik Yoon, Dongha Lee, Yunyi Zhang, Jiawei Han</div>
+          <div class="pub-venue">SIGIR23 | ACM SIGIR Conference on Research and Development in Information Retrieval, July 2023</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/abs/10.1145/3539618.3591782" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[WWW23]</span>
           PDSum: Prototype-driven Continuous Summarization of Evolving Multi-document Sets Stream
+          <div class="pub-authors">Susik Yoon, Hou Pong Chan, Jiawei Han</div>
+          <div class="pub-venue">WWW23 | ACM The Web Conference, April 2023</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/abs/10.1145/3543507.3583371" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[WWW23]</span>
           SCStory: Self-supervised and Continual Online Story Discovery
+          <div class="pub-authors">Susik Yoon, Yu Meng, Dongha Lee, Jiawei Han</div>
+          <div class="pub-venue">WWW23 | ACM The Web Conference, April 2023</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/abs/10.1145/3543507.3583507" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[TITS23]</span>
           MG-TAR: Multi-view Graph Convolutional Networks for Traffic Accident Risk Prediction
+          <div class="pub-authors">Patara Trirat, Susik Yoon, Jae-Gil Lee</div>
+          <div class="pub-venue">TITS23 | IEEE Transactions on Intelligent Transportation Systems, 2023</div>
           <div class="badge-links"><a href="https://ieeexplore.ieee.org/document/10023949" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[EMNLP22]</span>
-          Topic Taxonomy Expansresearch.htmlion via Hierarchy-Aware Topic Phrase Generation
-          <div class="badge-links"><a href="https://aclanthology.org/2022.findings-emnlp.122.pdf" target="_blank">Paper</a></div>
+          Topic Taxonomy Expansion via Hierarchy-Aware Topic Phrase Generation
+          <div class="pub-authors">Dongha Lee, Jiaming Shen, Seonghyeon Lee, Susik Yoon, Hwanjo Yu, Jiawei Han</div>
+          <div class="pub-venue">EMNLP22 (Findings) | Conference on Empirical Methods in Natural Language Processing, December 2022</div>
+          <div class="badge-links"><a href="https://aclanthology.org/2022.findings-emnlp.122/" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[AAAI22]</span>
-          COVID-EENet: Predicting Fine-Grained Impact of COVID-19 on Local Economies
-          <div class="badge-links"><a href="https://www.aaai.org/AAAI22Papers/AISI-1959.KimD.pdf" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/COVID-EENet" target="_blank">Code</a></div>
+          Multi-view POI-level Cellular Trajectory Reconstruction for Digital Contact Tracing of Infectious Diseases
+          <div class="pub-authors">Dongmin Park, Junhyeok Kang, Hwanjun Song, Susik Yoon, Jae-Gil Lee</div>
+          <div class="pub-venue">ICDM22 (Short) | IEEE International Conference on Data Mining, November 2022</div>
+          <div class="badge-links"><a href="https://ieeexplore.ieee.org/document/10027641" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[KDD22]</span>
           Adaptive Model Pooling for Online Deep Anomaly Detection from a Complex Evolving Data Stream
-          <div class="badge-links"><a href="https://drive.google.com/file/d/17YK5f_tBl2dBrsY_jvxpZlcG--uRni45/view" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/ARCUS" target="_blank">Code</a></div>
+          <div class="pub-authors">Susik Yoon, Youngjun Lee, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">KDD22 | ACM SIGKDD Conference on Knowledge Discovery and Data Mining, August 2022</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3534678.3539348" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/ARCUS" target="_blank">Code</a></div>
         </li>
         <li>
-          <span class="venue">[ICLR22]</span>
           Coherence-based Label Propagation over Time Series for Accelerated Active Learning
+          <div class="pub-authors">Yooju Shin, Susik Yoon, Sundong Kim, Hwanjun Song, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">ICLR22 | International Conference on Learning Representations, April 2022</div>
           <div class="badge-links"><a href="https://openreview.net/pdf?id=gjNcH0hj0LM" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/TCLP" target="_blank">Code</a></div>
         </li>
         <li>
-          <span class="venue">[WWW22]</span>
           TaxoCom: Topic Taxonomy Completion with Hierarchical Discovery of Novel Topic Clusters
+          <div class="pub-authors">Dongha Lee, Jiaming Shen, Seongku Kang, Susik Yoon, Jiawei Han, Hwanjo Yu</div>
+          <div class="pub-venue">WWW22 | ACM The Web Conference, April 2022</div>
           <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3485447.3512002" target="_blank">Paper</a></div>
         </li>
         <li>
-          <span class="venue">[KDD20]</span>
+          COVID-EENet: Predicting Fine-Grained Impact of COVID-19 on Local Economies
+          <div class="pub-authors">Doyoung Kim, Hyangsuk Min, Youngeun Nam, Hwanjun Song, Susik Yoon, Minseok Kim, Jae-Gil Lee</div>
+          <div class="pub-venue">AAAI22 | AAAI Conference on Artificial Intelligence, February 2022</div>
+          <div class="badge-links"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/21455" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/COVID-EENet" target="_blank">Code</a></div>
+        </li>
+        <li>
           Multiple Dynamic Outlier-Detection from a Data Stream by Exploiting Duality of Data and Queries
-          <div class="badge-links"><a href="https://drive.google.com/file/d/10CwxfxRTl8s8Z-IZBTh-7u5PGi0iaY9J/view" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/MDUAL" target="_blank">Code</a></div>
+          <div class="pub-authors">Susik Yoon, Yooju Shin, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">SIGMOD21 | ACM Conference on Management of Data, June 2021</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3448016.3452810" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/MDUAL" target="_blank">Code</a></div>
         </li>
         <li>
-          <span class="venue">[SIGMOD21]</span>
           Ultrafast Local Outlier Detection from a Data Stream with Stationary Region Skipping
-          <div class="badge-links"><a href="https://drive.google.com/file/d/1iCw1QcQE1inY9sPiwPBXgXWQk2hsdFe5/view" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/STARE" target="_blank">Code</a></div>
+          <div class="pub-authors">Susik Yoon, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">KDD20 | ACM SIGKDD Conference on Knowledge Discovery and Data Mining, August 2020</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/3394486.3403171" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/STARE" target="_blank">Code</a></div>
         </li>
         <li>
-          <span class="venue">[VLDB19]</span>
           NETS: Extremely Fast Outlier Detection from a Data Stream via Set-Based Processing
-          <div class="badge-links"><a href="http://www.vldb.org/pvldb/vol12/p1303-yoon.pdf" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/NETS" target="_blank">Code</a></div>
+          <div class="pub-authors">Susik Yoon, Jae-Gil Lee, Byung Suk Lee</div>
+          <div class="pub-venue">VLDB19 | International Conference on Very Large Data Bases, August 2019</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.14778/3342263.3342269" target="_blank">Paper</a><a href="https://github.com/kaist-dmlab/NETS" target="_blank">Code</a></div>
         </li>
-      </ul>
+        <li>
+          MLAT: Metric Learning for kNN in Streaming Time Series
+          <div class="pub-authors">Dongmin Park, Susik Yoon, Hwanjun Song, Jae-Gil Lee</div>
+          <div class="pub-venue">MiLeTS19 (KDD Workshop) | Workshop on Mining and Learning from Time Series, August 2019</div>
+          <div class="badge-links"><a href="#" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          CEP-Wizard: Automatic Deployment of Distributed Complex Event Processing
+          <div class="pub-authors">Yooju Shin, Susik Yoon, Patara Trirat, Jae-Gil Lee</div>
+          <div class="pub-venue">ICDE19 (Demo) | IEEE International Conference on Data Engineering, April 2019</div>
+          <div class="badge-links"><a href="https://ieeexplore.ieee.org/document/8731592" target="_blank">Paper</a></div>
+        </li>
+        <li>
+          Social or Financial Goals? Comparative Analysis of User Behaviors in Couchsurfing and Airbnb
+          <div class="pub-authors">Jiwon Jung*, Susik Yoon*, SeungHyun Kim*, SangKeun Park, Kun-Pyo Lee, Uichin Lee</div>
+          <div class="pub-venue">CHI16 (Late-Breaking Work) | ACM Conference on Human Factors in Computing Systems, May 2016</div>
+          <div class="badge-links"><a href="https://dl.acm.org/doi/10.1145/2851581.2892328" target="_blank">Paper</a></div>
+        </li>
+      </ol>
     </main>
     <footer>
-      Data &amp; Adaptive Intelligence Systems (DAIS) Laboratory, Korea University &mdash;
-      <a href="mailto:susik@korea.ac.kr">susik@korea.ac.kr</a>
+      Data &amp; Adaptive Intelligence Systems (DAIS) Laboratory, Korea University
     </footer>
+    <script>
+    (function(){
+      var topics=document.querySelectorAll('.topic-filter');
+      var cardTitles=document.querySelectorAll('.research-card h3');
+      var pubs=document.querySelectorAll('.pub-list li');
+      var activeEl=null;
+
+      function getVenue(li){
+        var v=li.querySelector('.pub-venue');
+        if(!v) return '';
+        var txt=v.textContent.split('|')[0].trim();
+        return txt.replace(/\s*\(.*?\)\s*/g,'').trim();
+      }
+
+      var filterLabel=document.getElementById('filter-label');
+      var pubHeading=filterLabel.parentElement;
+
+      function filterByVenues(venues){
+        pubs.forEach(function(p){
+          var pv=getVenue(p);
+          if(venues.indexOf(pv)!==-1){
+            p.classList.remove('pub-hidden');
+          }else{
+            p.classList.add('pub-hidden');
+          }
+        });
+        pubHeading.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+
+      // Click filter label or "Publications" heading to clear filter
+      filterLabel.style.cursor='pointer';
+      pubHeading.style.cursor='pointer';
+      pubHeading.addEventListener('click',function(){
+        if(activeEl) clearFilter();
+      });
+
+      function clearFilter(){
+        activeEl=null;
+        document.querySelectorAll('.active').forEach(function(e){e.classList.remove('active');});
+        document.querySelectorAll('.card-active').forEach(function(e){e.classList.remove('card-active');});
+        pubs.forEach(function(p){p.classList.remove('pub-hidden');});
+        filterLabel.textContent='';
+      }
+
+      function handleClick(el,venues,isCard){
+        if(activeEl===el){
+          clearFilter();
+          return;
+        }
+        clearFilter();
+        activeEl=el;
+        if(isCard){
+          el.parentElement.classList.add('card-active');
+          filterLabel.textContent='— '+el.textContent;
+        }else{
+          el.classList.add('active');
+          // Get topic name (text before venue-tag)
+          var name=el.childNodes[0].textContent.trim();
+          filterLabel.textContent='— '+name;
+        }
+        filterByVenues(venues);
+      }
+
+      // Topic clicks
+      topics.forEach(function(t){
+        t.addEventListener('click',function(e){
+          e.stopPropagation();
+          handleClick(t,t.getAttribute('data-venues').split(','),false);
+        });
+      });
+
+      // Card clicks — combine all venues from child topics
+      document.querySelectorAll('.research-card').forEach(function(card){
+        card.style.cursor='pointer';
+        card.addEventListener('click',function(e){
+          // Don't override topic clicks
+          if(e.target.closest('.topic-filter')) return;
+          var h=card.querySelector('h3');
+          var childTopics=card.querySelectorAll('.topic-filter');
+          var allVenues=[];
+          childTopics.forEach(function(t){
+            t.getAttribute('data-venues').split(',').forEach(function(v){
+              if(allVenues.indexOf(v)===-1) allVenues.push(v);
+            });
+          });
+          handleClick(h,allVenues,true);
+        });
+      });
+
+    })();
+    </script>
   </body>
 </html>
