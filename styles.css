@@ -7,15 +7,15 @@
     --muted: #666666;
     --accent: #819A91;
     --accent-light: #A7C1A8;
-    --accent-pale: #D1D8BE;
-    --border: #c8cdb8;
+    --accent-pale: #d4ddd6;
+    --border: #d0d0d0;
 }
 
 * { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;h
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -34,7 +34,7 @@ nav {
 nav a {
     color: #f5f7f2;
     text-decoration: none;
-    font-family: monospace;
+
     font-size: 0.92rem;
     padding: 12px 16px;
     border-bottom: 2px solid transparent;
@@ -118,7 +118,7 @@ a:hover { text-decoration: underline; }
 .news-list li:last-child { border-bottom: none; }
 .date {
     color: var(--accent);
-    font-family: monospace;
+
     font-size: 0.83rem;
     margin-right: 6px; flex-shrink: 0;
 }
@@ -197,7 +197,7 @@ a:hover { text-decoration: underline; }
     font-size: 0.92rem;
 }
 .pub-list li::marker {
-    font-family: monospace;
+
     font-size: 0.82rem;
     color: var(--accent);
     font-weight: bold;
@@ -227,7 +227,7 @@ a:hover { text-decoration: underline; }
 .badge-links a, .badge-links span {
     display: inline-block;
     font-size: 0.75rem;
-    font-family: monospace;
+
     color: var(--muted);
     padding: 0;
     margin-right: 8px;
@@ -393,7 +393,7 @@ footer {
 .archive-toggle summary {
     cursor: pointer;
     font-size: 0.9rem;
-    font-family: monospace;
+
     color: var(--muted);
     padding: 6px 0;
     list-style: none;
@@ -415,6 +415,26 @@ footer {
 
 .archive-toggle .news-list {
     margin-top: 4px;
+}
+
+/* ---- Workshop outline ---- */
+.workshop-outline {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.88rem;
+    border-left: 2px solid var(--border);
+    padding-left: 14px;
+    margin: 16px 0 8px;
+}
+
+.workshop-outline a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.workshop-outline a:hover {
+    text-decoration: underline;
 }
 
 /* ---- Dao image swap ---- */
