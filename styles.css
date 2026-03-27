@@ -390,31 +390,53 @@ footer {
     margin-top: 8px;
 }
 
-.archive-toggle summary {
+.archive-toggle summary,
+.archive-year summary {
     cursor: pointer;
     font-size: 0.9rem;
-
     color: var(--muted);
     padding: 6px 0;
     list-style: none;
 }
 
-.archive-toggle summary::before {
+.archive-toggle > summary::before {
     content: "\25B6  ";
-    font-size: 0.7rem;
 }
 
-.archive-toggle[open] summary::before {
+.archive-toggle[open] > summary::before {
     content: "\25BC  ";
-    font-size: 0.7rem;
 }
 
-.archive-toggle summary:hover {
+.archive-year summary::before {
+    content: "\25B6  ";
+}
+
+.archive-year[open] summary::before {
+    content: "\25BC  ";
+}
+
+.archive-toggle summary:hover,
+.archive-year summary:hover {
     color: var(--accent);
 }
 
 .archive-toggle .news-list {
     margin-top: 4px;
+}
+
+.archive-year {
+    margin-left: 12px;
+}
+
+/* ---- News year divider ---- */
+.news-year-label {
+    font-size: 0.78rem;
+    font-weight: bold;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    padding: 10px 0 2px;
+    border-bottom: 1px solid var(--accent-pale);
+    margin-bottom: 2px;
 }
 
 /* ---- Workshop outline ---- */
