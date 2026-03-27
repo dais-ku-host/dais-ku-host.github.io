@@ -399,20 +399,20 @@ footer {
     list-style: none;
 }
 
-.archive-toggle > summary::before {
-    content: "\25B6  ";
+.archive-toggle > summary::before,
+.archive-year summary::before {
+    content: "\25B6";
+    display: inline-block;
+    margin-right: 6px;
+    transition: transform 0.2s;
 }
 
 .archive-toggle[open] > summary::before {
-    content: "\25BC  ";
-}
-
-.archive-year summary::before {
-    content: "\25B6  ";
+    transform: rotate(90deg);
 }
 
 .archive-year[open] summary::before {
-    content: "\25BC  ";
+    transform: rotate(90deg);
 }
 
 .archive-toggle summary:hover,
