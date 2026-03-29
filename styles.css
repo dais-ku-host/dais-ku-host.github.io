@@ -1,5 +1,6 @@
 /* ===== DAIS Lab — Shared Stylesheet ===== */
 /* Palette: https://colorhunt.co/palette/819a91a7c1a8d1d8beeeefe0 */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap');
 
 :root {
     --bg: #ffffff;
@@ -15,7 +16,7 @@
 
 body {
     margin: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -47,14 +48,18 @@ nav a.active {
     border-bottom-color: var(--accent-pale);
 }
 
+
 /* ---- Layout ---- */
 main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 56px 24px 96px;
+    padding: 28px 24px 96px;
 }
 
 /* ---- Typography ---- */
+h1, h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+}
 h1 {
     font-size: 2rem;
     font-weight: bold;
@@ -72,6 +77,12 @@ h3 {
     font-size: 1rem;
     font-weight: bold;
     margin: 24px 0 8px;
+    color: var(--accent);
+}
+h4 {
+    font-size: 0.93rem;
+    font-weight: 600;
+    margin: 12px 0 4px;
     color: var(--accent);
 }
 p { margin: 0 0 16px; }
@@ -112,10 +123,19 @@ a:hover { text-decoration: underline; }
 .news-list { list-style: none; padding: 0; margin: 0; }
 .news-list li {
     display: flex; align-items: baseline; padding: 6px 0;
-    border-bottom: 1px solid var(--border);
     font-size: 0.93rem;
+    position: relative;
+}
+.news-list li:has(.date)::after {
+    content: ""; display: block; position: absolute; bottom: 0;
+    left: 4.1em; right: 0;
+    border-bottom: 1px solid var(--border);
+}
+.news-list li:not(:has(.date)) {
+    border-bottom: 1px solid var(--border);
 }
 .news-list li:last-child { border-bottom: none; }
+.news-list li:last-child::after { display: none; }
 .date {
     color: var(--accent);
 
@@ -242,6 +262,7 @@ a:hover { text-decoration: underline; }
 .venue-tag {
     color: var(--muted);
     font-size: 0.8rem;
+    display: block;
 }
 
 /* ---- Topic filter ---- */
