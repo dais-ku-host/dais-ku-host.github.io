@@ -231,7 +231,7 @@ a:hover { text-decoration: underline; }
     cursor: pointer;
 }
 #filter-label:hover {
-    text-decoration: line-through;
+    text-decoration: none;
 }
 .pub-authors {
     font-size: 0.82rem;
