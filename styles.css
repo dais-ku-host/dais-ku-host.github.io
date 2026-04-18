@@ -141,23 +141,11 @@ a:hover {
 }
 
 .mission {
-    margin: 24px auto;
-    padding: 24px 16px;
-    max-width: 85%;
-    border-radius: 0;
-    background: transparent;
-    border: none;
-    border-top: 1px solid var(--accent-pale);
-    border-bottom: 1px solid var(--accent-pale);
-    font-family: "Source Serif 4", Georgia, serif;
+    color: var(--accent);
     font-style: italic;
-    color: var(--accent-dark);
-    font-size: 1.15rem;
+    margin: 0 auto 20px;
+    font-size: 1rem;
     text-align: center;
-    letter-spacing: 0.01em;
-    line-height: 1.6;
-    opacity: 0.9;
-    box-shadow: none;
 }
 
 /* ---- News list ---- */
