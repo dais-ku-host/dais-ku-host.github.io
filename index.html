@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,335 +8,447 @@
   <meta name="description" content="Data &amp; Adaptive Intelligence Systems Laboratory, Korea University" />
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<nav>
-  <a href="index.html" class="active">Home</a>
-  <a href="team.html">Team</a>
-  <a href="research.html">Research</a>
-  <a href="join.html">Join</a>
-</nav>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="team.html">Team</a>
+    <a href="research.html">Research</a>
+    <a href="join.html">Join</a>
+  </nav>
 
-<main>
-  <h1>Data &amp; Adaptive Intelligence Systems Lab</h1>
-  <p class="subtitle">DAIS Lab, Korea University </p>
+  <main>
+    <h1>Data &amp; Adaptive Intelligence Systems Lab</h1>
+    <p class="subtitle">DAIS Lab, Korea University </p>
 
-  <div class="wave-hero">
-    <canvas id="waveCanvas"></canvas>
-  </div>
-  <script>
-  (function(){
-    var canvas=document.getElementById('waveCanvas');
-    var ctx=canvas.getContext('2d');
-    var NUM=16;
-    var lines=[];
-    var particles=[];
-    var ripples=[];
+    <div class="wave-hero">
+      <canvas id="waveCanvas"></canvas>
+    </div>
+    <script>
+      (function () {
+        var canvas = document.getElementById('waveCanvas');
+        var ctx = canvas.getContext('2d');
+        var NUM = 16;
+        var lines = [];
+        var particles = [];
+        var ripples = [];
+        var nextParticleId = 0;
 
-    function resize(){
-      canvas.width=canvas.parentElement.clientWidth;
-      canvas.height=150;
-      init();
-    }
+        function resize() {
+          canvas.width = canvas.parentElement.clientWidth;
+          canvas.height = 150;
+          init();
+        }
 
-    // Get wave Y at a given x for a given line
-    function waveY(l,x,time){
-      return l.y
-        +Math.sin(x*l.freq1+time*l.speed1+l.phase1)*l.amp1
-        +Math.sin(x*l.freq2+time*l.speed2+l.phase2)*l.amp2
-        +Math.sin(x*l.freq3+time*l.speed3+l.phase3)*l.amp3;
-    }
+        // Get wave Y at a given x for a given line
+        function waveY(l, x, time) {
+          return l.y
+            + Math.sin(x * l.freq1 + time * l.speed1 + l.phase1) * l.amp1
+            + Math.sin(x * l.freq2 + time * l.speed2 + l.phase2) * l.amp2
+            + Math.sin(x * l.freq3 + time * l.speed3 + l.phase3) * l.amp3;
+        }
 
-    function init(){
-      lines=[];
-      for(var i=0;i<NUM;i++){
-        var tt=i/(NUM-1);
-        lines.push({
-          y: 30+tt*90,
-          amp1: 15+Math.random()*20,
-          amp2: 8+Math.random()*12,
-          amp3: 4+Math.random()*6,
-          freq1: 0.002+Math.random()*0.001,
-          freq2: 0.004+Math.random()*0.002,
-          freq3: 0.007+Math.random()*0.003,
-          speed1: 0.3+Math.random()*0.2,
-          speed2: 0.15+Math.random()*0.15,
-          speed3: 0.08+Math.random()*0.1,
-          phase1: Math.random()*Math.PI*2,
-          phase2: Math.random()*Math.PI*2,
-          phase3: Math.random()*Math.PI*2,
-          thick: 2.5-tt*1.8,
-          alpha: 0.78-tt*0.6
-        });
-      }
-      // Create particles on random lines
-      particles=[];
-      var shapes=['circle','rect','triangle'];
-      for(var p=0;p<5;p++){
-        spawnParticle();
-      }
-    }
-
-    function spawnParticle(startX){
-      var li=Math.floor(Math.random()*NUM);
-      particles.push({
-        lineIdx: li,
-        x: startX!=null ? startX : Math.random()*canvas.width,
-        speed: 0.15+Math.random()*0.4,
-        shape: 'circle',
-        size: 3+Math.random()*5,
-        alpha: 0.3+Math.random()*0.5,
-        bobPhase: Math.random()*Math.PI*2,
-        bobAmp: 0, // no bobbing, stay on line
-        dying: false,
-        deathTime: 0,
-        deathX: 0, deathY: 0
-      });
-    }
-
-    var t=0;
-    var mouseX=-1,mouseY=-1,mouseIn=false;
-    var bursts=[];
-    canvas.addEventListener('mouseleave',function(){mouseIn=false;});
-
-    // Hover over circle particles to burst + ripple
-    canvas.addEventListener('mousemove',function(e){
-      var r=canvas.getBoundingClientRect();
-      mouseX=e.clientX-r.left;
-      mouseY=e.clientY-r.top;
-      mouseIn=true;
-      for(var i=particles.length-1;i>=0;i--){
-        var p=particles[i];
-        if(p.dying) continue;
-        var py=waveY(lines[p.lineIdx],p.x,t);
-        var dx=p.x-mouseX,dy=py-mouseY;
-        if(Math.sqrt(dx*dx+dy*dy)<p.size+10){
-          // Trigger soft ripple
-          ripples.push({x:p.x,y:py,radius:0,maxRadius:180,alpha:0.35,speed:1.0});
-          // Start fade-out
-          p.dying=true;
-          p.deathTime=t;
-          p.deathX=p.x;
-          p.deathY=py;
-          // Soft dissolve particles
-          for(var f=0;f<4;f++){
-            var angle=Math.PI*2*f/4+Math.random()*0.5;
-            bursts.push({
-              x:p.x,y:py,
-              vx:Math.cos(angle)*0.5,
-              vy:Math.sin(angle)*0.5,
-              size:p.size*0.3,
-              alpha:p.alpha*0.5,
-              life:1
+        function init() {
+          lines = [];
+          for (var i = 0; i < NUM; i++) {
+            var tt = i / (NUM - 1);
+            lines.push({
+              y: 30 + tt * 90,
+              amp1: 15 + Math.random() * 20,
+              amp2: 8 + Math.random() * 12,
+              amp3: 4 + Math.random() * 6,
+              freq1: 0.002 + Math.random() * 0.001,
+              freq2: 0.004 + Math.random() * 0.002,
+              freq3: 0.007 + Math.random() * 0.003,
+              speed1: 0.3 + Math.random() * 0.2,
+              speed2: 0.15 + Math.random() * 0.15,
+              speed3: 0.08 + Math.random() * 0.1,
+              phase1: Math.random() * Math.PI * 2,
+              phase2: Math.random() * Math.PI * 2,
+              phase3: Math.random() * Math.PI * 2,
+              thick: 2.5 - tt * 1.8,
+              alpha: 0.78 - tt * 0.6
             });
           }
-          break;
-        }
-      }
-    });
-
-    // Ripple distortion — gentle and smooth
-    function rippleDisplace(x,y){
-      var total=0;
-      for(var i=0;i<ripples.length;i++){
-        var rp=ripples[i];
-        var dx=x-rp.x,dy=y-rp.y;
-        var dist=Math.sqrt(dx*dx+dy*dy);
-        var ring=Math.abs(dist-rp.radius);
-        if(ring<60){
-          var fade=(1-ring/60);
-          var wave=Math.sin(ring*0.15)*rp.alpha*fade*fade*8;
-          total+=wave;
-        }
-      }
-      return total;
-    }
-
-    function drawParticle(p){
-      if(p.dying) return false; // don't draw dying particles
-      var l=lines[p.lineIdx];
-      var py=waveY(l,p.x,t);
-      py+=rippleDisplace(p.x,py);
-      var s=p.size;
-      ctx.fillStyle='rgba(129,154,145,'+p.alpha+')';
-      ctx.strokeStyle='rgba(129,154,145,'+Math.min(p.alpha+0.2,1)+')';
-      ctx.lineWidth=1;
-      ctx.beginPath();
-      ctx.arc(p.x,py,s,0,Math.PI*2);
-      ctx.fill();
-      ctx.stroke();
-      return true;
-    }
-
-    function drawBursts(){
-      for(var i=bursts.length-1;i>=0;i--){
-        var b=bursts[i];
-        b.x+=b.vx;
-        b.y+=b.vy;
-        b.vx*=0.98; b.vy*=0.98; // slow down gradually
-        b.life-=0.015;
-        if(b.life<=0){bursts.splice(i,1);continue;}
-        var a=b.alpha*b.life*b.life; // quadratic fade for smoothness
-        ctx.fillStyle='rgba(167,193,168,'+a+')';
-        ctx.beginPath();
-        ctx.arc(b.x,b.y,b.size*(0.5+b.life*0.5),0,Math.PI*2);
-        ctx.fill();
-      }
-    }
-
-    function drawRippleRings(){
-      for(var i=0;i<ripples.length;i++){
-        var rp=ripples[i];
-        var progress=rp.radius/rp.maxRadius;
-        var fade=rp.alpha*(1-progress)*(1-progress);
-        ctx.beginPath();
-        ctx.arc(rp.x,rp.y,rp.radius,0,Math.PI*2);
-        ctx.strokeStyle='rgba(167,193,168,'+fade+')';
-        ctx.lineWidth=1;
-        ctx.stroke();
-      }
-    }
-
-    function draw(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      t+=0.01;
-
-      // Update ripples — slow, gentle expansion
-      for(var i=ripples.length-1;i>=0;i--){
-        ripples[i].radius+=ripples[i].speed;
-        ripples[i].alpha*=0.995;
-        if(ripples[i].radius>ripples[i].maxRadius||ripples[i].alpha<0.01){
-          ripples.splice(i,1);
-        }
-      }
-
-      // Draw wave lines
-      for(var i=0;i<lines.length;i++){
-        var l=lines[i];
-        ctx.beginPath();
-        ctx.strokeStyle='rgba(167,193,168,'+Math.max(l.alpha,0.04)+')';
-        ctx.lineWidth=Math.max(l.thick,0.3);
-        for(var x=0;x<=canvas.width;x+=3){
-          var y=waveY(l,x,t);
-          // Ripple distortion on lines
-          y+=rippleDisplace(x,y);
-          if(x===0)ctx.moveTo(x,y);
-          else ctx.lineTo(x,y);
-        }
-        ctx.stroke();
-      }
-
-      // Draw ripple rings
-      drawRippleRings();
-
-      // Draw burst fragments
-      drawBursts();
-
-      // Update & draw particles
-      for(var i=particles.length-1;i>=0;i--){
-        var p=particles[i];
-        if(p.dying){
-          // Remove after burst, respawn later
-          if(t-p.deathTime>1){
-            particles.splice(i,1);
-            spawnParticle(-20);
+          // Create particles on random lines
+          particles = [];
+          var shapes = ['circle', 'rect', 'triangle'];
+          for (var p = 0; p < 10; p++) {
+            spawnParticle();
           }
-          continue;
         }
-        p.x+=p.speed;
-        if(p.x>canvas.width+20){
-          p.x=-20;
-          p.lineIdx=Math.floor(Math.random()*NUM);
+
+        function spawnParticle(startX) {
+          var li = Math.floor(Math.random() * NUM);
+          particles.push({
+            id: nextParticleId++,
+            lineIdx: li,
+            x: startX != null ? startX : Math.random() * canvas.width,
+            speed: 0.15 + Math.random() * 0.4,
+            shape: 'circle',
+            size: 3 + Math.random() * 5,
+            alpha: 0.3 + Math.random() * 0.5,
+            bobPhase: Math.random() * Math.PI * 2,
+            bobAmp: 0, // no bobbing, stay on line
+            dying: false,
+            deathTime: 0,
+            deathX: 0, deathY: 0
+          });
         }
-        drawParticle(p);
-      }
 
-      requestAnimationFrame(draw);
-    }
+        var t = 0;
+        var mouseX = -1, mouseY = -1, mouseIn = false;
+        var bursts = [];
+        var activeConnections = {};
 
-    resize();
-    window.addEventListener('resize',resize);
-    draw();
-  })();
-  </script>
+        function actualBurst(p) {
+          if (p.dying) return;
+          p.dying = true;
+          var py = waveY(lines[p.lineIdx], p.x, t);
+          py += rippleDisplace(p.x, py);
+          p.deathTime = t;
+          p.deathX = p.x;
+          p.deathY = py;
 
-  <div class="mission">
-    Empower innovation through data-driven insights, fostering intelligence systems with adaptive capabilities.
-  </div>
+          ripples.push({ x: p.x, y: py, radius: 0, maxRadius: 180, alpha: 0.35, speed: 1.0 });
 
-  <h2>News</h2>
-  <ul class="news-list">
-    <li><span class="date">[2026.04]</span> Two papers on keyphrase extraction and recommendation accepted to SIGIR 2026, and one paper on generative retrieval accepted to ACL 2026</li>
-    <li><span class="date">[2026.03]</span> Six undergraduate students continued to graduate studies</li>
-    <li><span class="date">[2026.02]</span> Susik will serve as a Publicity Chair for KDD 2026</li>
-    <li><span class="date">[2026.01]</span> A paper on time-series forecasting accepted to WWW 2026</li>
-    <li><span class="date">[2026.01]</span> Our research on tabular feature engineering was featured in the KIISE newsletter</li>
-    <li><span class="date">[2026.01]</span> Two undergraduate students and one intern joined DAIS Lab</li>
-  </ul>
+          for (var f = 0; f < 4; f++) {
+            var angle = Math.PI * 2 * f / 4 + Math.random() * 0.5;
+            bursts.push({
+              x: p.x, y: py,
+              vx: Math.cos(angle) * 0.5,
+              vy: Math.sin(angle) * 0.5,
+              size: p.size * 0.3,
+              alpha: p.alpha * 0.5,
+              life: 1
+            });
+          }
+        }
 
-  <details class="archive-toggle">
-    <summary>Archive</summary>
+        canvas.addEventListener('mouseleave', function () { mouseIn = false; });
 
-    <details class="archive-year" open>
-      <summary>2025</summary>
-      <ul class="news-list">
-        <li><span class="date">[2025.12]</span> Susik gave a talk at Korea Software Congress 2025</li>
-        <li><span class="date">[2025.11]</span> Papers on continual retrieval, community search, and heterogeneous network accepted to KDD 2026, SIGMOD 2026, and WSDM 2026, respectively</li>
-        <li><span class="date">[2025.11]</span> Susik received the outstanding lecture award (Data Science) from Korea University</li>
-        <li><span class="date">[2025.10]</span> Susik gave a talk at LG Electronics</li>
-        <li><span class="date">[2025.10]</span> DAIS Lab won the second prize in the poster presentation at AI Tech Day at Korea University</li>
-        <li><span class="date">[2025.09]</span> A paper on traffic forecasting accepted to KBS 2025</li>
-        <li><span class="date">[2025.09]</span> One undergraduate student continued to graduate studies </li>
-        <li><span class="date">[2025.08]</span> A paper on multi-level evaluation for feature engineering with LLM accepted to EMNLP 2025</li>
-        <li><span class="date">[2025.08]</span> Woojun won the Master's Research Fellowship from the National Research Foundation of Korea</li>
-        <li><span class="date">[2025.08]</span> Susik gave talks at Samsung Display and VAIV Company</li>
-        <li><span class="date">[2025.07]</span> Three undergraduate students joined DAIS Lab</li>
-        <li><span class="date">[2025.06]</span> Yoonhwan and Hyunwoong won the best paper award at Korea Computer Congress 2025 (with UNIST)</li>
-        <li><span class="date">[2025.06]</span> Susik gave a talk at LG Electronics</li>
-        <li><span class="date">[2025.05]</span> A paper on the networked time series accepted to KDD 2025</li>
-        <li><span class="date">[2025.04]</span> A paper on the tabular embedding accepted to SIGIR 2025</li>
-        <li><span class="date">[2025.03]</span> Six undergraduate students continued to graduate studies</li>
-        <li><span class="date">[2025.02]</span> Susik will serve as an Area Chair for KDD 2025 Applied Data Science Track</li>
-        <li><span class="date">[2025.01]</span> Four undergraduate students joined DAIS Lab</li>
-      </ul>
+        // Hover over circle particles to burst + ripple
+        canvas.addEventListener('mousemove', function (e) {
+          var r = canvas.getBoundingClientRect();
+          mouseX = e.clientX - r.left;
+          mouseY = e.clientY - r.top;
+          mouseIn = true;
+          for (var i = particles.length - 1; i >= 0; i--) {
+            var p = particles[i];
+            if (p.dying) continue;
+            var py = waveY(lines[p.lineIdx], p.x, t);
+            py += rippleDisplace(p.x, py);
+            var dx = p.x - mouseX, dy = py - mouseY;
+            if (Math.sqrt(dx * dx + dy * dy) < p.size + 10) {
+              actualBurst(p);
+              break;
+            }
+          }
+        });
+
+        // Ripple distortion — gentle and smooth
+        function rippleDisplace(x, y) {
+          var total = 0;
+          for (var i = 0; i < ripples.length; i++) {
+            var rp = ripples[i];
+            var dx = x - rp.x, dy = y - rp.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            var ring = Math.abs(dist - rp.radius);
+            if (ring < 60) {
+              var fade = (1 - ring / 60);
+              var wave = Math.sin(ring * 0.15) * rp.alpha * fade * fade * 8;
+              total += wave;
+            }
+          }
+          return total;
+        }
+
+        function drawParticle(p) {
+          if (p.dying) return false; // don't draw dying particles
+          var l = lines[p.lineIdx];
+          var py = waveY(l, p.x, t);
+          py += rippleDisplace(p.x, py);
+          var s = p.size;
+          ctx.fillStyle = 'rgba(129,154,145,' + p.alpha + ')';
+          ctx.strokeStyle = 'rgba(129,154,145,' + Math.min(p.alpha + 0.2, 1) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.arc(p.x, py, s, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          return true;
+        }
+
+        function drawBursts() {
+          for (var i = bursts.length - 1; i >= 0; i--) {
+            var b = bursts[i];
+            b.x += b.vx;
+            b.y += b.vy;
+            b.vx *= 0.98; b.vy *= 0.98; // slow down gradually
+            b.life -= 0.015;
+            if (b.life <= 0) { bursts.splice(i, 1); continue; }
+            var a = b.alpha * b.life * b.life; // quadratic fade for smoothness
+            ctx.fillStyle = 'rgba(167,193,168,' + a + ')';
+            ctx.beginPath();
+            ctx.arc(b.x, b.y, b.size * (0.5 + b.life * 0.5), 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        function drawRippleRings() {
+          for (var i = 0; i < ripples.length; i++) {
+            var rp = ripples[i];
+            var progress = rp.radius / rp.maxRadius;
+            var fade = rp.alpha * (1 - progress) * (1 - progress);
+            ctx.beginPath();
+            ctx.arc(rp.x, rp.y, rp.radius, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(167,193,168,' + fade + ')';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          t += 0.01;
+
+          // Update ripples — slow, gentle expansion
+          for (var i = ripples.length - 1; i >= 0; i--) {
+            ripples[i].radius += ripples[i].speed;
+            ripples[i].alpha *= 0.995;
+            if (ripples[i].radius > ripples[i].maxRadius || ripples[i].alpha < 0.01) {
+              ripples.splice(i, 1);
+            }
+          }
+
+          // Draw wave lines
+          for (var i = 0; i < lines.length; i++) {
+            var l = lines[i];
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(167,193,168,' + Math.max(l.alpha, 0.04) + ')';
+            ctx.lineWidth = Math.max(l.thick, 0.3);
+            for (var x = 0; x <= canvas.width; x += 3) {
+              var y = waveY(l, x, t);
+              // Ripple distortion on lines
+              y += rippleDisplace(x, y);
+              if (x === 0) ctx.moveTo(x, y);
+              else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+          }
+
+          // Draw ripple rings
+          drawRippleRings();
+
+          // Draw burst fragments
+          drawBursts();
+
+          // Update & extract coordinates for particles
+          var activePoints = [];
+          for (var i = particles.length - 1; i >= 0; i--) {
+            var p = particles[i];
+            if (p.dying) {
+              // Remove after burst, respawn later
+              if (t - p.deathTime > 1) {
+                particles.splice(i, 1);
+                spawnParticle(-20);
+              }
+              continue;
+            }
+            p.x += p.speed;
+            if (p.x > canvas.width + 20) {
+              p.x = -20;
+              p.lineIdx = Math.floor(Math.random() * NUM);
+              p.id = nextParticleId++; // treat as new particle to safely drop old connection states
+            }
+            var l = lines[p.lineIdx];
+            var wy = waveY(l, p.x, t);
+            var py = wy + rippleDisplace(p.x, wy);
+            activePoints.push({x: p.x, y: py, p: p});
+          }
+
+          // Draw connections (organic curves as grey solid lines)
+          ctx.setLineDash([]); // solid 
+          var maxDist = 110; 
+          var nextConnections = {};
+          
+          for (var i = 0; i < activePoints.length; i++) {
+            for (var j = i + 1; j < activePoints.length; j++) {
+              var p1 = activePoints[i];
+              var p2 = activePoints[j];
+              var dx = p1.x - p2.x;
+              var dy = p1.y - p2.y;
+              var dist = Math.sqrt(dx * dx + dy * dy);
+              
+              var minId = Math.min(p1.p.id, p2.p.id);
+              var maxId = Math.max(p1.p.id, p2.p.id);
+              var key = minId + "_" + maxId;
+
+              if (dist < maxDist) {
+                nextConnections[key] = true;
+                
+                var closeness = 1 - dist / maxDist;
+                var a = closeness * 0.35; 
+                // Exaggerated line thickness: from ultra-thin 0.1px to very bold 3.5px when extremely close
+                ctx.lineWidth = Math.max(0.1, closeness * 3.5);
+                // Greyish tone for clear separation from the green waves
+                ctx.strokeStyle = 'rgba(160,165,165,' + a + ')';
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                
+                // Calculate curved control point to mimic waves (natural flow)
+                var mx = (p1.x + p2.x) / 2;
+                var my = (p1.y + p2.y) / 2;
+                var curveOffset = dx * 0.15; 
+                
+                ctx.quadraticCurveTo(mx, my + curveOffset, p2.x, p2.y);
+                ctx.stroke();
+              } else {
+                if (activeConnections[key]) {
+                  // The connection just broke due to distance!
+                  var mx = (p1.x + p2.x) / 2;
+                  var my = (p1.y + p2.y) / 2;
+                  
+                  // Burst fragments at the breaking midpoint
+                  for (var f = 0; f < 3; f++) {
+                    var angle = Math.PI * 2 * f / 3 + Math.random() * 0.5;
+                    bursts.push({
+                      x: mx, y: my,
+                      vx: Math.cos(angle) * 0.4,
+                      vy: Math.sin(angle) * 0.4,
+                      size: 2.0,
+                      alpha: 0.3,
+                      life: 1
+                    });
+                  }
+                  // Soft breaking ripple
+                  ripples.push({ x: mx, y: my, radius: 0, maxRadius: 40, alpha: 0.15, speed: 0.6 });
+                }
+              }
+            }
+          }
+          activeConnections = nextConnections;
+          ctx.setLineDash([]); // Reset to solid lines so particles aren't drawn dotted
+
+          // Draw nodes (particles)
+          for (var i = 0; i < activePoints.length; i++) {
+            var pt = activePoints[i];
+            var s = pt.p.size;
+            ctx.fillStyle = 'rgba(129,154,145,' + pt.p.alpha + ')';
+            ctx.strokeStyle = 'rgba(129,154,145,' + Math.min(pt.p.alpha + 0.2, 1) + ')';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(pt.x, pt.y, s, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+          }
+
+          requestAnimationFrame(draw);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+        draw();
+      })();
+    </script>
+
+    <div class="mission">
+      Empower innovation through data-driven insights, fostering intelligence systems with adaptive capabilities.
+    </div>
+
+    <h2>News</h2>
+    <ul class="news-list">
+      <li><span class="date">[2026.04]</span> Two papers on keyphrase extraction and recommendation accepted to SIGIR
+        2026, and one paper on generative retrieval accepted to ACL 2026</li>
+      <li><span class="date">[2026.03]</span> Six undergraduate students continued to graduate studies</li>
+      <li><span class="date">[2026.02]</span> Susik will serve as a Publicity Chair for KDD 2026</li>
+      <li><span class="date">[2026.01]</span> A paper on time-series forecasting accepted to WWW 2026</li>
+      <li><span class="date">[2026.01]</span> Our research on tabular feature engineering was featured in the KIISE
+        newsletter</li>
+      <li><span class="date">[2026.01]</span> Two undergraduate students and one intern joined DAIS Lab</li>
+    </ul>
+
+    <details class="archive-toggle">
+      <summary>Archive</summary>
+
+      <details class="archive-year" open>
+        <summary>2025</summary>
+        <ul class="news-list">
+          <li><span class="date">[2025.12]</span> Susik gave a talk at Korea Software Congress 2025</li>
+          <li><span class="date">[2025.11]</span> Papers on continual retrieval, community search, and heterogeneous
+            network accepted to KDD 2026, SIGMOD 2026, and WSDM 2026, respectively</li>
+          <li><span class="date">[2025.11]</span> Susik received the outstanding lecture award (Data Science) from Korea
+            University</li>
+          <li><span class="date">[2025.10]</span> Susik gave a talk at LG Electronics</li>
+          <li><span class="date">[2025.10]</span> DAIS Lab won the second prize in the poster presentation at AI Tech
+            Day at Korea University</li>
+          <li><span class="date">[2025.09]</span> A paper on traffic forecasting accepted to KBS 2025</li>
+          <li><span class="date">[2025.09]</span> One undergraduate student continued to graduate studies </li>
+          <li><span class="date">[2025.08]</span> A paper on multi-level evaluation for feature engineering with LLM
+            accepted to EMNLP 2025</li>
+          <li><span class="date">[2025.08]</span> Woojun won the Master's Research Fellowship from the National Research
+            Foundation of Korea</li>
+          <li><span class="date">[2025.08]</span> Susik gave talks at Samsung Display and VAIV Company</li>
+          <li><span class="date">[2025.07]</span> Three undergraduate students joined DAIS Lab</li>
+          <li><span class="date">[2025.06]</span> Yoonhwan and Hyunwoong won the best paper award at Korea Computer
+            Congress 2025 (with UNIST)</li>
+          <li><span class="date">[2025.06]</span> Susik gave a talk at LG Electronics</li>
+          <li><span class="date">[2025.05]</span> A paper on the networked time series accepted to KDD 2025</li>
+          <li><span class="date">[2025.04]</span> A paper on the tabular embedding accepted to SIGIR 2025</li>
+          <li><span class="date">[2025.03]</span> Six undergraduate students continued to graduate studies</li>
+          <li><span class="date">[2025.02]</span> Susik will serve as an Area Chair for KDD 2025 Applied Data Science
+            Track</li>
+          <li><span class="date">[2025.01]</span> Four undergraduate students joined DAIS Lab</li>
+        </ul>
+      </details>
+
+      <details class="archive-year">
+        <summary>2024</summary>
+        <ul class="news-list">
+          <li><span class="date">[2024.12]</span> Woojun won the runner-up award in the Capstone Design Competition at
+            Korea University</li>
+          <li><span class="date">[2024.12]</span> Susik received the Seoktop lecture award (Data Science) from Korea
+            University</li>
+          <li><span class="date">[2024.11]</span> Susik gave a talk at Chung-Ang University</li>
+          <li><span class="date">[2024.10]</span> Susik gave talks at AI Tech Day at Korea University and Kongju
+            National University</li>
+          <li><span class="date">[2024.10]</span> A paper on continual coreness prediction (with UNIST) received the
+            best paper award (silver prize) at KDBC 2024</li>
+          <li><span class="date">[2024.09]</span> A paper on time series segmentation accepted to NeurIPS 2024</li>
+          <li><span class="date">[2024.07]</span> Twelve undergraduate students, one researcher, and one master student
+            joined DAIS Lab</li>
+          <li><span class="date">[2024.07]</span> A paper on the clique problem accepted to CIKM 2024</li>
+          <li><span class="date">[2024.06]</span> Susik gave a talk at CHA Medical School and Korea Computer Congress
+            2024</li>
+          <li><span class="date">[2024.06]</span> We presented two undergraduate poster papers (with one best paper
+            award) at Korea Computer Congress 2024</li>
+          <li><span class="date">[2024.05]</span> A paper on online concept drift detection accepted to KDD 2024</li>
+          <li><span class="date">[2024.05]</span> Susik had an interview with the ICT Creative Consilience Program at
+            Korea University</li>
+          <li><span class="date">[2024.05]</span> A paper on adaptive prompt tuning for continual learning accepted to
+            ICML 2024</li>
+          <li><span class="date">[2024.04]</span> Two undergraduate students joined DAIS Lab </li>
+          <li><span class="date">[2024.03]</span> DAIS Lab at Korea University opened</li>
+        </ul>
+      </details>
+
     </details>
 
-    <details class="archive-year">
-      <summary>2024</summary>
-      <ul class="news-list">
-        <li><span class="date">[2024.12]</span> Woojun won the runner-up award in the Capstone Design Competition at Korea University</li>
-        <li><span class="date">[2024.12]</span> Susik received the Seoktop lecture award (Data Science) from Korea University</li>
-        <li><span class="date">[2024.11]</span> Susik gave a talk at Chung-Ang University</li>
-        <li><span class="date">[2024.10]</span> Susik gave talks at AI Tech Day at Korea University and Kongju National University</li>
-        <li><span class="date">[2024.10]</span> A paper on continual coreness prediction (with UNIST) received the best paper award (silver prize) at KDBC 2024</li>
-        <li><span class="date">[2024.09]</span> A paper on time series segmentation accepted to NeurIPS 2024</li>
-        <li><span class="date">[2024.07]</span> Twelve undergraduate students, one researcher, and one master student joined DAIS Lab</li>
-        <li><span class="date">[2024.07]</span> A paper on the clique problem accepted to CIKM 2024</li>
-        <li><span class="date">[2024.06]</span> Susik gave a talk at CHA Medical School and Korea Computer Congress 2024</li>
-        <li><span class="date">[2024.06]</span> We presented two undergraduate poster papers (with one best paper award) at Korea Computer Congress 2024</li>
-        <li><span class="date">[2024.05]</span> A paper on online concept drift detection accepted to KDD 2024</li>
-        <li><span class="date">[2024.05]</span> Susik had an interview with the ICT Creative Consilience Program at Korea University</li>
-        <li><span class="date">[2024.05]</span> A paper on adaptive prompt tuning for continual learning accepted to ICML 2024</li>
-        <li><span class="date">[2024.04]</span> Two undergraduate students joined DAIS Lab </li>
-        <li><span class="date">[2024.03]</span> DAIS Lab at Korea University opened</li>
-      </ul>
-    </details>
+    <h2>Quick Links</h2>
+    <ul class="quick-links">
+      <li><a href="pi.html">Principal Investigator</a></li>
+      <li><a href="team.html">Who we are</a></li>
+      <li><a href="research.html">What we do</a></li>
+      <li><a href="join.html">How to join</a></li>
+      <li><a href="https://maps.app.goo.gl/DyVT8mzZ293u5sS76" target="_blank">Visit</a></li>
+    </ul>
+  </main>
 
-  </details>
-
-  <h2>Quick Links</h2>
-  <ul class="news-list">
-    <li><a href="pi.html">Principal Investigator</a></li>
-    <li><a href="team.html">Who we are</a></li>
-    <li><a href="research.html">What we do</a></li>
-    <li><a href="join.html">How to join</a></li>
-    <li><a href="https://maps.app.goo.gl/DyVT8mzZ293u5sS76" target="_blank">Visit</a></li>
-  </ul>
-</main>
-
-<footer>
-  Data &amp; Adaptive Intelligence Systems (DAIS) Laboratory, Korea University
-</footer>
+  <footer>
+    Data &amp; Adaptive Intelligence Systems (DAIS) Laboratory, Korea University
+  </footer>
 
 </body>
+
 </html>
