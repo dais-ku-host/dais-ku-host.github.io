@@ -263,9 +263,14 @@ a:hover {
     aspect-ratio: 1;
     object-fit: cover;
     object-position: top;
+    background: #fff;
     border-radius: 4px;
     margin-bottom: 8px;
     display: block;
+}
+
+.member-card img[src*="hyunwoong_lim"] {
+    object-fit: contain;
 }
 
 .member-card .name {
