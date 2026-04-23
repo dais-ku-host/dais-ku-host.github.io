@@ -273,6 +273,10 @@ a:hover {
     object-fit: contain;
 }
 
+.member-card img[src*="myeongchun_kim"] {
+    object-position: center 40%;
+}
+
 .member-card .name {
     font-weight: bold;
     margin-bottom: 3px;
