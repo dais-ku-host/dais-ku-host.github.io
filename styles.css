@@ -89,6 +89,56 @@ h1 {
     line-height: 1.2;
 }
 
+.culture-row {
+    margin: 4px 0 8px;
+}
+
+.culture-row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.culture-row > p {
+    margin: 0;
+}
+
+.culture-row .lab-photo {
+    float: right;
+    width: 34%;
+    margin: 4px 0 -12px 24px;
+}
+
+.culture-row .lab-photo figcaption {
+    margin-top: 2px;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.lab-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.lab-photo figcaption {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+    .culture-row .lab-photo {
+        float: none;
+        width: 100%;
+        margin: 16px 0;
+    }
+}
+
 footer .footer-logo {
     height: 28px;
     width: auto;
